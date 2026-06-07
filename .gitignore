@@ -1,0 +1,12 @@
+.DS_Store
+
+# Debug / scratch files in project root
+/debug-*.png
+/0*-debug-*.png
+
+# Duplicate bundles — live site is published from docs/
+export/
+Pitch til Psykiatrifonden (offline)/
+Pitch til Psykiatrifonden (standalone).html
+scraps/
+screenshots/
