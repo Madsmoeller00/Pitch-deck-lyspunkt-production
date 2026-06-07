@@ -1,5 +1,8 @@
 .DS_Store
 
+# Local working files — not needed for the live site
+uploads/
+
 # Debug / scratch files in project root
 /debug-*.png
 /0*-debug-*.png
