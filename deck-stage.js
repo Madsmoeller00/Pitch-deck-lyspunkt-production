@@ -344,7 +344,7 @@
     .thumb { outline: none; }
     .thumb:focus-visible .frame { outline-color: rgba(255,255,255,0.5); }
     .thumb[data-current] .num { color: #fff; }
-    .thumb[data-current] .frame { outline-color: #D97757; }
+    .thumb[data-current] .frame { outline-color: #028090; }
     .thumb[data-dragging] { opacity: 0.35; }
     .thumb::before {
       content: '';
@@ -353,7 +353,7 @@
       right: 0;
       height: 3px;
       border-radius: 2px;
-      background: #D97757;
+      background: #028090;
       opacity: 0;
       pointer-events: none;
     }
@@ -480,12 +480,12 @@
     }
     .confirm .cancel:hover { background: rgba(255,255,255,0.08); }
     .confirm .danger {
-      background: #c96442;
+      background: #02616E;
       border: 1px solid rgba(0,0,0,0.15);
       color: #fff;
       box-shadow: 0 1px 3px rgba(166,50,68,0.3), 0 2px 6px rgba(166,50,68,0.18);
     }
-    .confirm .danger:hover { background: #b5563a; }
+    .confirm .danger:hover { background: #024F5A; }
 
     /* ── Print: one page per slide, no chrome ────────────────────────────
        The screen layout stacks every slide at inset:0 inside a scaled
