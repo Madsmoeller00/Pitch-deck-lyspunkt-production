@@ -1740,7 +1740,7 @@
   .barrier-block {
     background: var(--warm-tint);
     border-top: 3px solid var(--warm);
-    padding: 20px 28px 14px;
+    padding: 18px 28px;
   }
   .barrier-block .problem-quote {
     border-top-color: rgba(184,112,79,0.28);
@@ -1783,131 +1783,206 @@
   section.slide--cover .corner-mark,
   section.slide--cover .page-num { color: var(--tertiary); }
 
-  /* === Slide 8 — format mindmap === */
-  .format-mindmap {
-    --mm-ink: #1c1c1a;
-    --mm-muted: #5c5c58;
-    --mm-line: #c8c8c4;
-    --mm-surface: #ffffff;
-    --mm-fill: #f4f4f2;
+  /* === Slide 7 — tre spor track columns === */
+  .tre-spor-body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     flex: 1;
     min-height: 0;
-    margin-top: 4px;
-    padding: 8px 0 4px;
-    gap: 0;
   }
-  .format-mindmap__hub {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-    padding: 22px 48px 24px;
-    background: var(--mm-surface);
-    border: 1.5px solid var(--mm-ink);
-    border-radius: 14px;
-    box-sizing: border-box;
-    max-width: 100%;
+  .tre-spor-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.9fr);
+    gap: 28px;
+    align-items: start;
+    min-width: 0;
   }
-  .format-mindmap__hub-label {
+  .tre-spor-header__main {
+    min-width: 0;
+  }
+  .tre-spor-header__main .title {
+    max-width: 1500px;
+    font-size: 72px;
+    line-height: 1.06;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  .tre-spor-header__main .lead {
+    max-width: 1500px;
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: var(--body);
+  }
+  .tre-spor-ref {
+    width: 100%;
+    min-width: 0;
+  }
+  .tre-spor-ref__label {
     font-family: var(--sans);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--mm-muted);
-    margin: 0;
+    color: var(--tertiary);
+    margin: 0 0 10px 0;
     line-height: 1;
   }
-  .format-mindmap__hub-title {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 1.2;
-    color: var(--mm-ink);
+  .tre-spor-ref__card {
+    width: 100%;
     margin: 0;
-    letter-spacing: -0.02em;
+    border: 0.5px solid #E3DED5;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
   }
-  .format-mindmap__lines {
-    width: 68%;
-    height: 56px;
-    flex-shrink: 0;
-    pointer-events: none;
-    overflow: visible;
-    margin: -1px 0;
+  .tre-spor-ref__card img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
-  .format-mindmap__nodes {
+  .tre-spor-ref__caption {
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--secondary);
+    margin: 10px 0 0 0;
+    text-align: left;
+  }
+  .tre-spor-campaign {
+    background: var(--teal-soft);
+    border: 0.5px solid #CDE3E5;
+    border-radius: 9px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .tre-spor-campaign__label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5b8d93;
+    margin: 0 0 2px;
+    line-height: 1;
+  }
+  .tre-spor-campaign__title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 17px;
+    color: #1A1A18;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .tre-spor-arrows {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
-    align-items: stretch;
+    gap: 24px;
+    margin: 14px 0 0;
+    min-height: 44px;
   }
-  .format-mindmap__node {
+  .tre-spor-arrow {
+    justify-self: center;
+    align-self: stretch;
+    width: 2px;
+    height: 44px;
+    background: linear-gradient(to bottom, #CDE3E5, #9EC4C8);
+    border-radius: 2px;
+    position: relative;
+  }
+  .tre-spor-arrow::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid #9EC4C8;
+  }
+  .tre-spor-tracks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 18px;
+    flex: 1;
+    min-height: 0;
+  }
+  .tre-spor-track {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-    background: var(--mm-surface);
-    border: 1.5px solid var(--mm-line);
-    border-radius: 14px;
-    padding: 22px 24px 20px;
+    justify-content: center;
+    min-width: 0;
+    background: #ffffff;
+    border: 0.5px solid #E3DED5;
+    border-top: 3px solid var(--teal);
+    border-radius: 10px;
+    padding: 26px 26px;
     box-sizing: border-box;
-    gap: 18px;
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.03), 0 8px 22px rgba(26, 26, 24, 0.05);
   }
-  .format-mindmap__node-title {
+  .tre-spor-track__head {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 1.2;
-    color: var(--mm-ink);
-    margin: 0;
-    letter-spacing: -0.01em;
+    margin-bottom: 20px;
   }
-  .format-mindmap__node-icon {
+  .tre-spor-track__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--teal-soft);
+    color: var(--teal);
     flex-shrink: 0;
-    background: var(--mm-fill);
-    color: var(--mm-ink);
   }
-  .format-mindmap__node-icon svg {
-    width: 17px;
-    height: 17px;
+  .tre-spor-track__icon svg {
+    width: 24px;
+    height: 24px;
     stroke: currentColor;
     fill: none;
     stroke-width: 1.75;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  .format-mindmap__tags {
+  .tre-spor-track__num {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1;
+    color: #DCD8CF;
+    letter-spacing: -0.02em;
+  }
+  .tre-spor-track__name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0 0 16px 0;
+    padding-bottom: 16px;
+    border-bottom: 0.5px solid #ECE7DE;
+  }
+  .tre-spor-track__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 16px;
-    border-top: 1px solid var(--mm-line);
+    gap: 7px;
   }
-  .format-mindmap__tag {
+  .tre-spor-track__tag {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.01em;
-    color: var(--mm-muted);
-    background: var(--mm-fill);
-    padding: 6px 12px;
-    border-radius: 6px;
+    color: var(--teal-deep);
+    background: var(--teal-soft);
+    padding: 5px 11px;
+    border-radius: 999px;
     white-space: nowrap;
     line-height: 1.3;
   }
@@ -1990,14 +2065,14 @@
           </blockquote>
           <figcaption style="margin-top: 14px; font-family: var(--sans); font-size: 14px; line-height: 1.45; letter-spacing: 0.02em; text-transform: none;" data-om-id="a5599d72:166">
             <span class="q-name" style="font-weight: 600;" data-om-id="a5599d72:167">Philip Tønder Hartvig</span><br data-om-id="a5599d72:168">
-            Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver på projektet
+            Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland
           </figcaption>
         </figure>
       </div>
 
       <div style="display: flex; flex-direction: column; height: 100%;" data-om-id="a5599d72:159b">
-        <p class="label" style="margin-bottom: 18px;" data-om-id="a5599d72:159c">Hvorfor snakker vi ikke om det?</p>
-        <div class="barrier-block" style="flex: 1;" data-om-id="a5599d72:169">
+        <p class="label" style="margin-bottom: 18px;" data-om-id="a5599d72:159c">Hvorfor siger vi det ikke højt?</p>
+        <div class="barrier-block" data-om-id="a5599d72:169">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" data-om-id="1dc9af67:171">
           <div data-om-id="1dc9af67:172">
             <p class="label" style="margin-bottom: 8px;" data-om-id="a5599d72:170">Barriererne – den berørte</p>
@@ -2015,7 +2090,7 @@
               <li data-om-id="a5599d72:183"><span class="num" data-om-id="a5599d72:184">01</span>Usikker på hvordan man skal håndtere samtalen.</li>
               <li data-om-id="a5599d72:185"><span class="num" data-om-id="a5599d72:186">02</span>Bange for at gøre problemet værre.</li>
               <li data-om-id="a5599d72:187"><span class="num" data-om-id="a5599d72:188">03</span>Frygten for at sige noget forkert.</li>
-              <li data-om-id="a5599d72:189"><span class="num" data-om-id="a5599d72:190">04</span>En forestilling om, at man skal kunne fikse problemet, hvis man åbner samtalen.</li>
+              <li data-om-id="a5599d72:189"><span class="num" data-om-id="a5599d72:190">04</span>En forestilling om, at man skal fikse problemet, hvis man åbner samtalen.</li>
             </ul>
           </div>
         </div>
@@ -2055,7 +2130,7 @@
       <div class="stat" data-om-id="a5599d72:641">
         <span class="stat__num stat__num--xl" style="color: var(--ink); font-size: 200px;" data-om-id="a5599d72:642">33%</span>
         <span class="stat__label" style="font-size: 22px; line-height: 1.45; max-width: 360px; margin-top: 18px;" data-om-id="a5599d72:643">
-          af unge 16-24 taler <strong style="color: var(--ink);" data-om-id="a5599d72:644">sjældent eller aldrig</strong> med deres forældre om modgang og sorger.
+          af unge mellem 16-24 år taler <strong style="color: var(--ink);" data-om-id="a5599d72:644">sjældent eller aldrig</strong> med deres forældre om modgang og sorger.
         </span>
         <span class="stat__source" style="margin-top: 12px;" data-om-id="a5599d72:645">Psykiatrifonden, 2024</span>
       </div>
@@ -2063,7 +2138,7 @@
       <div class="stat" data-om-id="a5599d72:646">
         <span class="stat__num stat__num--xl" style="color: var(--ink); font-size: 200px;" data-om-id="a5599d72:647">56%</span>
         <span class="stat__label" style="font-size: 22px; line-height: 1.45; max-width: 360px; margin-top: 18px;" data-om-id="a5599d72:648">
-          af unge 16-29 har det seneste år haft brug for støtte fordi de ikke havde det godt. Af dem søgte 29% hjælp –&nbsp;<strong style="color: var(--ink);" data-om-id="a5599d72:649">27% gjorde ikke.</strong>
+          af unge mellem 16-29 år har det seneste år haft brug for støtte fordi de ikke havde det godt. Af dem søgte 29% hjælp –&nbsp;<strong style="color: var(--ink);" data-om-id="a5599d72:649">27% gjorde ikke.</strong>
         </span>
         <span class="stat__source" style="margin-top: 12px;" data-om-id="a5599d72:650">DUF, Ungeanalysen 2025</span>
       </div>
@@ -2177,7 +2252,7 @@
     <div style="flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center;" data-om-id="a5599d72:229">
 
       <!-- section eyebrow -->
-      <p class="label-muted" style="margin: 0 0 30px 0; letter-spacing: 0.2em; font-size: 22px;" data-om-id="a5599d72:231">Hvad gør kampagnen anderledes?</p>
+      <p class="label-muted" style="margin: 0 0 30px 0; letter-spacing: 0.2em; font-size: 22px;" data-om-id="a5599d72:231">Derfor er det ikke bare "endnu en kampagne"</p>
 
       <!-- four differentiators -->
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; align-items: stretch;" data-om-id="a5599d72:233">
@@ -2240,7 +2315,7 @@
       <div style="padding-right: 40px;" data-om-id="a5599d72:544">
         <p class="label" style="margin-bottom: 24px;" data-om-id="a5599d72:545">Primær målgruppe</p>
         <h2 class="title" style="font-size: 88px; margin-bottom: 28px;" data-om-id="a5599d72:546">Unge og voksne, 16-35 år.</h2>
-        <p class="body" style="max-width: 680px; font-size: 24px;" data-om-id="a5599d72:547">De, der har det svært, og bærer det alene. De, der har sproget men ikke modet – eller modet men ikke sproget.</p>
+        <p class="body" style="max-width: 680px; font-size: 24px;" data-om-id="a5599d72:547">Dem, der går alene med noget, de ikke får sagt højt. De har måske sproget, men ikke modet – eller modet, men ikke sproget.</p>
       </div>
 
       <div style="padding-left: 40px;" data-om-id="a5599d72:548">
@@ -2248,7 +2323,7 @@
         <h2 class="title" style="font-size: 88px; margin-bottom: 28px;" data-om-id="a5599d72:550">
           De<br data-om-id="a5599d72:551">nærmeste.
         </h2>
-        <p class="body" style="max-width: 680px; font-size: 24px; color: var(--ink);" data-om-id="a5599d72:552">Venner, søskende, forældre, kærester, pårørende – dem, der godt kan se der er noget galt, men ikke ved, hvordan man spørger og er bange for at gøre det værre.</p>
+        <p class="body" style="max-width: 680px; font-size: 24px; color: var(--ink);" data-om-id="a5599d72:552">Venner, søskende, forældre, kærester og andre pårørende – dem, der godt kan se noget er galt, men ikke ved, hvordan man spørger.</p>
       </div>
 
     </div>
@@ -2275,65 +2350,77 @@
     <span class="page-num" data-om-id="a5599d72:251">07 / 16</span>
 
     <p class="eyebrow" data-om-id="a5599d72:252">Sådan møder vi målgruppen</p>
-    <h2 class="title" style="max-width: 1620px; font-size: 72px; line-height: 1.06; margin-bottom: 18px; letter-spacing: -0.01em;" data-om-id="a5599d72:253">Kampagnens tre spor</h2>
-    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin-bottom: 0; color: var(--body);" data-om-id="a5599d72:254">Vi har hentet inspiration i internationale kampagner, der har vist, hvordan man kan flytte svære emner fra opmærksomhed til handling. Som i den australske kampagne "R U OK?", der med ét simpelt spørgsmål har lært en hel generation at tjekke ind hos hinanden.</p>
 
-    <hr class="rule" style="margin: 28px 0 22px 0;" data-om-id="a5599d72:255">
+    <div class="tre-spor-body" data-om-id="a5599d72:256-body">
 
-    <!-- Format mindmap — campaign hub with three content spokes -->
-    <div class="format-mindmap" data-om-id="a5599d72:256" aria-label="Kampagnens tre indholdsspor">
+      <div class="tre-spor-header" data-om-id="a5599d72:256-header">
+        <div class="tre-spor-header__main">
+          <h2 class="title" data-om-id="a5599d72:253">Kampagnens tre spor</h2>
+          <p class="lead" data-om-id="a5599d72:254">Vi har hentet inspiration i internationale kampagner, der har vist, hvordan man kan flytte svære emner fra opmærksomhed til handling. Som i den australske kampagne "R U OK?", der med ét simpelt spørgsmål har lært en hel generation at tjekke ind hos hinanden.</p>
+        </div>
 
-      <div class="format-mindmap__hub" data-om-id="a5599d72:256-hub">
-        <span class="format-mindmap__hub-label" data-om-id="a5599d72:256-hub-label">Kampagnen</span>
-        <p class="format-mindmap__hub-title" data-om-id="a5599d72:256-hub-title">Hvorfor sagde jeg ik' noget?</p>
+        <aside class="tre-spor-ref" data-om-id="a5599d72:256-ref">
+          <p class="tre-spor-ref__label" data-om-id="a5599d72:256-ref-label">Reference</p>
+          <figure class="tre-spor-ref__card" data-om-id="a5599d72:256-ref-card">
+            <img src="media/r-u-ok-banner.png" alt="R U OK? kampagneplakat" data-om-id="a5599d72:256-ref-img">
+          </figure>
+          <p class="tre-spor-ref__caption" data-om-id="a5599d72:256-ref-caption">Inspireret af R U OK? · Australien</p>
+        </aside>
       </div>
 
-      <svg class="format-mindmap__lines" viewBox="0 0 900 56" preserveAspectRatio="xMidYMid meet" aria-hidden="true" data-om-id="a5599d72:256-lines">
-        <path d="M 450 0 L 450 20 L 150 56" stroke="#c8c8c4" stroke-width="1.5" fill="none" stroke-linecap="square"></path>
-        <path d="M 450 0 L 450 56" stroke="#c8c8c4" stroke-width="1.5" fill="none" stroke-linecap="square"></path>
-        <path d="M 450 0 L 450 20 L 750 56" stroke="#c8c8c4" stroke-width="1.5" fill="none" stroke-linecap="square"></path>
-        <circle cx="450" cy="0" r="3" fill="#1c1c1a"></circle>
-        <circle cx="150" cy="56" r="2.5" fill="#c8c8c4"></circle>
-        <circle cx="450" cy="56" r="2.5" fill="#c8c8c4"></circle>
-        <circle cx="750" cy="56" r="2.5" fill="#c8c8c4"></circle>
-      </svg>
+      <hr class="rule" style="margin: 24px 0 20px 0;" data-om-id="a5599d72:255">
 
-      <div class="format-mindmap__nodes">
-        <div class="format-mindmap__node format-mindmap__node--podcast" data-om-id="a5599d72:277">
-          <h3 class="format-mindmap__node-title" data-om-id="a5599d72:300">
-            <span class="format-mindmap__node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Z"></path><path d="M19 11v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v3"></path><path d="M8 21h8"></path></svg></span>
-            Podcast
-          </h3>
-          <div class="format-mindmap__tags" data-om-id="a5599d72:277-tags">
-            <span class="format-mindmap__tag" data-om-id="a5599d72:277-t1">fordybelse</span>
-            <span class="format-mindmap__tag" data-om-id="a5599d72:277-t2">fortælling</span>
-            <span class="format-mindmap__tag" data-om-id="a5599d72:277-t3">autenticitet</span>
-          </div>
-        </div>
+      <div class="tre-spor-campaign" data-om-id="a5599d72:256-hub">
+        <p class="tre-spor-campaign__label" data-om-id="a5599d72:256-hub-label">Kampagnen</p>
+        <p class="tre-spor-campaign__title" data-om-id="a5599d72:256-hub-title">Hvorfor sagde jeg ik' noget?</p>
+      </div>
+      <div class="tre-spor-arrows" aria-hidden="true" data-om-id="a5599d72:256-lines">
+        <span class="tre-spor-arrow"></span>
+        <span class="tre-spor-arrow"></span>
+        <span class="tre-spor-arrow"></span>
+      </div>
 
-        <div class="format-mindmap__node format-mindmap__node--some" data-om-id="a5599d72:257">
-          <h3 class="format-mindmap__node-title" data-om-id="a5599d72:271">
-            <span class="format-mindmap__node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10v4a3 3 0 0 0 3 3h4"></path><path d="M17 14V10a3 3 0 0 0-3-3h-4"></path><path d="M7 10 3 6"></path><path d="M17 14l4 4"></path></svg></span>
-            Sociale medier
-          </h3>
-          <div class="format-mindmap__tags" data-om-id="a5599d72:257-tags">
-            <span class="format-mindmap__tag" data-om-id="a5599d72:257-t1">reflektion</span>
-            <span class="format-mindmap__tag" data-om-id="a5599d72:257-t2">redskaber</span>
-            <span class="format-mindmap__tag" data-om-id="a5599d72:257-t3">engagement</span>
-          </div>
-        </div>
+      <div class="tre-spor-tracks" data-om-id="a5599d72:256" aria-label="Kampagnens tre indholdsspor">
 
-        <div class="format-mindmap__node format-mindmap__node--film" data-om-id="a5599d72:306">
-          <h3 class="format-mindmap__node-title" data-om-id="a5599d72:317">
-            <span class="format-mindmap__node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m10 9 6 4-6 4V9Z"></path></svg></span>
-            Kampagnefilm
-          </h3>
-          <div class="format-mindmap__tags" data-om-id="a5599d72:306-tags">
-            <span class="format-mindmap__tag" data-om-id="a5599d72:306-t1">opmærksomhed</span>
-            <span class="format-mindmap__tag" data-om-id="a5599d72:306-t2">humor</span>
-            <span class="format-mindmap__tag" data-om-id="a5599d72:306-t3">relevans</span>
+        <article class="tre-spor-track" data-om-id="a5599d72:257">
+          <div class="tre-spor-track__head">
+            <span class="tre-spor-track__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="10" height="20" rx="2"></rect><rect x="11" y="5" width="10" height="16" rx="2"></rect></svg></span>
+            <span class="tre-spor-track__num" aria-hidden="true">01</span>
           </div>
-        </div>
+          <h3 class="tre-spor-track__name" data-om-id="a5599d72:271">Sociale medier</h3>
+          <div class="tre-spor-track__tags" data-om-id="a5599d72:257-tags">
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:257-t1">reflektion</span>
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:257-t2">redskaber</span>
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:257-t3">engagement</span>
+          </div>
+        </article>
+
+        <article class="tre-spor-track" data-om-id="a5599d72:277">
+          <div class="tre-spor-track__head">
+            <span class="tre-spor-track__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Z"></path><path d="M19 11v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v3"></path><path d="M8 21h8"></path></svg></span>
+            <span class="tre-spor-track__num" aria-hidden="true">02</span>
+          </div>
+          <h3 class="tre-spor-track__name" data-om-id="a5599d72:300">Podcast</h3>
+          <div class="tre-spor-track__tags" data-om-id="a5599d72:277-tags">
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:277-t1">fordybelse</span>
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:277-t2">fortælling</span>
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:277-t3">autenticitet</span>
+          </div>
+        </article>
+
+        <article class="tre-spor-track" data-om-id="a5599d72:306">
+          <div class="tre-spor-track__head">
+            <span class="tre-spor-track__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m10 9 6 4-6 4V9Z"></path></svg></span>
+            <span class="tre-spor-track__num" aria-hidden="true">03</span>
+          </div>
+          <h3 class="tre-spor-track__name" data-om-id="a5599d72:317">Kampagnefilm</h3>
+          <div class="tre-spor-track__tags" data-om-id="a5599d72:306-tags">
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:306-t1">opmærksomhed</span>
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:306-t2">humor</span>
+            <span class="tre-spor-track__tag" data-om-id="a5599d72:306-t3">relevans</span>
+          </div>
+        </article>
+
       </div>
 
     </div>
@@ -2356,76 +2443,100 @@
     <hr class="rule" style="margin: 22px 0 24px 0;" data-om-id="a5599d72:340">
 
     <!-- Format gallery — 6 short visual demonstrations -->
-    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; flex: 1; min-height: 0;" data-om-id="a5599d72:341">
+    <style>
+      /* Slide 08 — format gallery: readable, uniform cards that always clear the footer.
+         Media flexes to fit its grid track (never forces overflow); captions get a
+         consistent divider, higher contrast and a uniform band so they line up. */
+      .format-gallery article { display: flex; flex-direction: column; min-height: 0; }
+      .format-gallery .fmt-media {
+        flex: 1 1 0;
+        min-height: 0;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(26, 26, 24, 0.16);
+      }
+      .format-gallery .fmt-cap {
+        flex: 0 0 auto;
+        margin: 14px 0 0 0;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.45;
+        color: var(--body);
+        min-height: 88px;
+        text-wrap: pretty;
+      }
+    </style>
+    <div class="format-gallery" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; flex: 1; min-height: 0;" data-om-id="a5599d72:341">
 
       <!-- 01 · Voxpop -->
       <article style="display: flex; flex-direction: column; min-height: 0;" data-om-id="a5599d72:342">
         <p class="mini-label" data-om-id="a5599d72:343">01 · Voxpop</p>
-        <div style="aspect-ratio: 9 / 17; background: #1A1A18; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 22px;" data-om-id="a5599d72:344">
+        <div class="fmt-media" style="background: #1A1A18; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 22px;" data-om-id="a5599d72:344">
           <video src="media/video_voxpop.mp4" autoplay="" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" data-om-id="a5599d72:345"></video>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,26,24,0.18) 0%, rgba(26,26,24,0.04) 38%, rgba(26,26,24,0.08) 62%, rgba(26,26,24,0.35) 100%);" data-om-id="a5599d72:346"></div>
           <span style="position: absolute; top: 12px; left: 12px; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: #E14B3F; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;" data-om-id="a5599d72:347"><span style="width: 7px; height: 7px; background: #E14B3F; border-radius: 50%; display: inline-block;" data-om-id="a5599d72:348"></span>REC</span>
           <span style="position: absolute; top: 12px; right: 12px; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.18em; color: rgba(251,246,241,0.55); text-transform: uppercase;" data-om-id="a5599d72:349">0:18</span>
           <p style="position: relative; font-family: var(--serif); font-style: italic; color: #FBF6F1; font-size: 19px; line-height: 1.3; margin: 0; text-align: center; text-wrap: balance; text-shadow: 0 1px 8px rgba(0,0,0,0.45);" data-om-id="a5599d72:350">»Har du nogensinde haft noget, du ikke sagde højt?«</p>
-          <span style="position: absolute; bottom: 14px; left: 0; right: 0; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.18em; color: rgba(251,246,241,0.55); text-transform: uppercase; text-align: center;" data-om-id="a5599d72:351">— interview · offentligheden</span>
+          <span style="position: absolute; bottom: 14px; left: 0; right: 0; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.18em; color: rgba(251,246,241,0.55); text-transform: uppercase; text-align: center;" data-om-id="a5599d72:351">interview · offentligheden</span>
         </div>
-        <p style="font-size: 15px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:352">Korte, ærlige svar fra forbipasserende.</p>
+        <p class="fmt-cap" data-om-id="a5599d72:352">Korte, ærlige svar fra forbipasserende.</p>
       </article>
 
       <!-- 02 · Send det her -->
       <article style="display: flex; flex-direction: column; min-height: 0;" data-om-id="a5599d72:353">
         <p class="mini-label" data-om-id="a5599d72:354">02 · Send det her</p>
-        <div style="aspect-ratio: 9 / 17; background: #1A1A18; position: relative; overflow: hidden;" data-om-id="a5599d72:355">
+        <div class="fmt-media" style="background: #1A1A18; position: relative; overflow: hidden;" data-om-id="a5599d72:355">
           <video src="media/i-have-a-message-for-you.mp4" autoplay="" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;" data-om-id="a5599d72:356"></video>
         </div>
-        <p style="font-size: 15px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:360">Tekstkort, der opfordrer til at sende videre privat.</p>
+        <p class="fmt-cap" data-om-id="a5599d72:360">Tekstkort, der opfordrer til at sende videre privat.</p>
       </article>
 
       <!-- 03 · Korte portrætter -->
       <article style="display: flex; flex-direction: column; min-height: 0;" data-om-id="a5599d72:361">
         <p class="mini-label" data-om-id="a5599d72:362">03 · Korte portrætter</p>
-        <div style="aspect-ratio: 9 / 17; position: relative; overflow: hidden; background: repeating-linear-gradient(135deg, #DDE9EB 0 14px, #C7DBDE 14px 28px); background-color: var(--teal-soft); display: flex; align-items: end; padding: 18px;" data-om-id="a5599d72:363">
+        <div class="fmt-media" style="position: relative; overflow: hidden; background: repeating-linear-gradient(135deg, #DDE9EB 0 14px, #C7DBDE 14px 28px); background-color: var(--teal-soft); display: flex; align-items: end; padding: 18px;" data-om-id="a5599d72:363">
           <video src="media/Bekendelsen.mp4" autoplay="" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;" data-om-id="a5599d72:364"></video>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2,128,144,0.02) 0%, rgba(2,97,110,0.22) 100%);" data-om-id="a5599d72:365"></div>
           <p style="position: relative; font-family: var(--serif); font-style: italic; color: #FBF6F1; font-size: 18px; line-height: 1.3; margin: 0; text-wrap: pretty;" data-om-id="a5599d72:366">»Jeg kunne se han ikke var sig selv – jeg ville ønske jeg havde sagt noget.«</p>
           <span style="position: absolute; top: 12px; left: 12px; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: rgba(251,246,241,0.85); text-transform: uppercase;" data-om-id="a5599d72:367">Nærbilleder</span>
         </div>
-        <p style="font-size: 15px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:368">Forskellige mennesker. Forskellige historier. Det samme gælder for dem alle: et ønske om at sige det højt.</p>
+        <p class="fmt-cap" data-om-id="a5599d72:368">Forskellige mennesker. Forskellige historier. Det samme gælder for dem alle: et ønske om at sige det højt.</p>
       </article>
 
       <!-- 04 · Redskaber -->
       <article style="display: flex; flex-direction: column; min-height: 0;" data-om-id="a5599d72:369">
         <p class="mini-label" data-om-id="a5599d72:370">04 · Redskaber</p>
-        <div style="aspect-ratio: 9 / 17; background: #1A1A18; position: relative; overflow: hidden; display: flex; align-items: end; padding: 18px;" data-om-id="a5599d72:371">
+        <div class="fmt-media" style="background: #1A1A18; position: relative; overflow: hidden; display: flex; align-items: end; padding: 18px;" data-om-id="a5599d72:371">
           <video src="media/we_can_talk_about_it.mp4" autoplay="" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;" data-om-id="a5599d72:372"></video>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2,128,144,0.03) 0%, rgba(2,97,110,0.20) 100%);" data-om-id="a5599d72:373"></div>
           <p style="position: absolute; top: 42px; left: 18px; right: 18px; font-family: var(--serif); font-style: italic; color: #FBF6F1; font-size: 18px; line-height: 1.32; margin: 0; text-wrap: pretty;" data-om-id="a5599d72:374">»Du behøver ikke fixe det. Du skal bare lytte.«</p>
           <span style="position: absolute; top: 12px; left: 12px; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: rgba(251,246,241,0.85); text-transform: uppercase;" data-om-id="a5599d72:375">Redskaber</span>
         </div>
-        <p style="font-size: 15px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:376">Inspireret af “Seize the Awkward”, hvor unge får konkrete greb til at starte en svær samtale og være der for en ven.</p>
+        <p class="fmt-cap" data-om-id="a5599d72:376">Inspireret af “Seize the Awkward”, hvor unge får konkrete greb til at starte en svær samtale, og være der for en ven.</p>
       </article>
 
       <!-- 05 · Det her, det mig -->
       <article style="display: flex; flex-direction: column; min-height: 0;" data-om-id="a5599d72:377">
         <p class="mini-label" data-om-id="a5599d72:378">05 · Det her, det mig</p>
-        <div style="aspect-ratio: 9 / 17; background: #1A1A18; position: relative; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 14px; border: 1px solid var(--border);" data-om-id="a5599d72:379">
+        <div class="fmt-media" style="background: #1A1A18; position: relative; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 14px; border: 1px solid var(--border);" data-om-id="a5599d72:379">
           <img src="uploads/det-her-det-mig-kitchen-tired.png" alt="Kvinde i køkken om natten, træt ved køleskabet" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" data-om-id="a5599d72:380">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,26,24,0.18) 0%, rgba(26,26,24,0.05) 40%, rgba(26,26,24,0.08) 62%, rgba(26,26,24,0.35) 100%);" data-om-id="a5599d72:381"></div>
           <p style="position: relative; top: -35%; font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.35; color: #FBF6F1; margin: 0; padding-left: 10px; border-left: 2px solid var(--teal); text-shadow: 0 1px 8px rgba(0,0,0,0.45)" data-om-id="a5599d72:382">»Det her er mig, der siger "jeg er bare lidt træt" for tredje måned i træk.«</p>
           <span style="position: absolute; top: 12px; right: 12px; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: rgba(251,246,241,0.7); text-transform: uppercase;" data-om-id="a5599d72:383">Ambassadør</span>
         </div>
-        <p style="font-size: 15px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:384">Ambassadører får med humor og selvironi, mulighed for at fortolke budskabet i deres egen stil.</p>
+        <p class="fmt-cap" data-om-id="a5599d72:384">Ambassadører får med humor og selvironi, mulighed for at fortolke budskabet i deres egen stil.</p>
       </article>
 
       <!-- 06 · Animation -->
       <article style="display: flex; flex-direction: column; min-height: 0;" data-om-id="a5599d72:385">
         <p class="mini-label" data-om-id="a5599d72:386">06 · Animation</p>
-        <div style="aspect-ratio: 9 / 17; background: #E5F1F2; position: relative; overflow: hidden; padding: 20px; display: flex; align-items: end;" data-om-id="a5599d72:387">
+        <div class="fmt-media" style="background: #E5F1F2; position: relative; overflow: hidden; padding: 20px; display: flex; align-items: end;" data-om-id="a5599d72:387">
           <video src="media/That one friend.mp4" autoplay="" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;" data-om-id="a5599d72:388"></video>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,26,24,0.18) 0%, rgba(26,26,24,0.05) 40%, rgba(26,26,24,0.08) 62%, rgba(26,26,24,0.35) 100%);" data-om-id="a5599d72:389"></div>
           <span style="position: absolute; top: 12px; left: 12px; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: rgba(251,246,241,0.85); text-transform: uppercase;" data-om-id="a5599d72:392">Animeret</span>
         </div>
-        <p style="font-size: 15px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:393">Animation gør det muligt at vise det, der kan være svært at sige højt, uden at unge selv skal eksponeres.</p>
+        <p class="fmt-cap" data-om-id="a5599d72:393">Animation gør det muligt at vise det, der kan være svært at sige højt, uden at unge selv skal eksponeres.</p>
       </article>
 
     </div>
@@ -2597,7 +2708,7 @@
             <span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-right: 4px;" data-om-id="a5599d72:470">”</span>Der er en berøringsangst i vores samfund; vi siger, at folk skal snakke højt, men når de så siger noget, kan vi ikke modtage dem.<span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-left: 4px;" data-om-id="a5599d72:471">”</span>
           </blockquote>
           <figcaption style="margin-top: 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--tertiary);" data-om-id="a5599d72:472">
-            <span style="font-weight: 600; color: var(--ink);" data-om-id="a5599d72:473">Philip Tønder Hartvig</span> &nbsp;·&nbsp; Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver
+            <span style="font-weight: 600; color: var(--ink);" data-om-id="a5599d72:473">Philip Tønder Hartvig</span> &nbsp;·&nbsp; Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland
           </figcaption>
         </figure>
       </div>
@@ -2654,7 +2765,7 @@
           <blockquote style="font-family: var(--serif); font-style: italic; font-size: 15px; line-height: 1.4; color: var(--ink); margin: 0; padding: 0; text-wrap: pretty;" data-om-id="a5599d72:528">»Folk lever under et eller andet tyranni, der hedder: vi snakker ikke om vores følelser, vi spørger ikke hinanden, vi antager bare, at tingene går skide godt. Hvad er den mest almindelige respons, når man møder nogen? 'Hey, hvordan har du det?' 'Fint.' Alle siger, 'jeg har det fint'.«</blockquote>
           <figcaption style="margin-top: 12px;" data-om-id="a5599d72:533">
             <span style="display: block; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.01em;" data-om-id="1dc9af67:680">Philip Tønder Hartvig</span>
-            <span style="display: block; margin-top: 2px; font-family: var(--sans); font-size: 12px; color: var(--secondary); line-height: 1.4;" data-om-id="a5599d72:534">Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver på projektet</span>
+            <span style="display: block; margin-top: 2px; font-family: var(--sans); font-size: 12px; color: var(--secondary); line-height: 1.4;" data-om-id="a5599d72:534">Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland</span>
           </figcaption>
         </figure>
         </div>
