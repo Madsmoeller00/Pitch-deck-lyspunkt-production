@@ -1,0 +1,25 @@
+---
+description: Never push or deploy to the live site — the user publishes themselves
+alwaysApply: true
+---
+
+# No push to live site
+
+**Never** push, publish, or deploy changes to the live site. The user handles that themselves.
+
+## Forbidden
+
+- `git push` (to any remote, including `origin`)
+- `gh` commands that publish (e.g. `gh pr merge`, releases that go live)
+- Deploy scripts, GitHub Actions triggers, or hosting CLI deploys meant to update production
+- Offering to push or deploy as a follow-up unless the user explicitly asks in that message
+
+## Allowed
+
+- Edit source files and run `./sync-docs.sh` to copy into `docs/` locally
+- `git add`, `git commit`, and other local git work **only when the user explicitly asks**
+- Tell the user their changes are ready and that they can commit/push when they want
+
+## If deployment is needed
+
+Only run push or deploy commands when the user **explicitly** requests it in that message. Otherwise, never.

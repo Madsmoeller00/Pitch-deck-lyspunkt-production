@@ -1,0 +1,34 @@
+---
+description: Teal vs terracotta color rules for the pitch deck HTML
+globs:
+  - "**/*.html"
+  - deck-stage.js
+---
+
+# Color usage: teal vs terracotta
+
+**Principle:** Teal is structure. Terracotta is meaning.
+
+## Decision test (per element)
+- Location / element type (label, eyebrow, section marker, nav, UI) → **teal**
+- One phrase/number the reader should remember → **terracotta** (`.mark` or `--point`)
+- Neither → **charcoal/ink**
+
+## CSS classes
+| Class | Use |
+|---|---|
+| `.label`, `.eyebrow`, `.mini-label` | Structural section markers (teal) |
+| `.mark` | Rhetorical emphasis — max one per slide (terracotta) |
+| `.stat__num--point` | When a single stat is the slide's deliberate point |
+| `.card--point` | When one card is the featured takeaway |
+| `.card` | Default structural card (teal left border) |
+
+## Hard rules
+1. Max one `.mark` per slide (guilt/objection grid is the exception: one `.mark` per card body).
+2. Never color a label terracotta.
+3. Teal label up top; terracotta `.mark` in content — not competing in the same block.
+4. Default body text to ink/body tokens.
+5. Stats in a set: identical ink unless one uses `--point`.
+
+## Source of truth
+Full rules comment lives in `:root` block of `Pitch til Psykiatrifonden v2 (editorial).html`. Run `./sync-docs.sh` after HTML/JS changes.

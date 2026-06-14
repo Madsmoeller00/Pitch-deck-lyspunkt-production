@@ -1,0 +1,55 @@
+---
+description: Safe slide reorder/delete workflow for the pitch deck HTML (tag @deck-slide-reorder)
+globs:
+  - "**/Pitch til Psykiatrifonden v2 (editorial).html"
+  - docs/index.html
+  - deck-stage.js
+alwaysApply: false
+---
+
+# Deck slide reorder — safe workflow
+
+**Tag this rule** (`@deck-slide-reorder`) when asking to move, renumber, or delete slides.
+
+## Hard limits
+
+- **Never** rewrite the deck HTML with Python, Node, or other bulk file scripts.
+- **Never** delete a slide unless the user explicitly asks to delete it.
+- **Never** `replace_all` on `/ 16` or `/ 17` — that breaks CSS like `aspect-ratio: 9 / 17`.
+- **Only** edit `Pitch til Psykiatrifonden v2 (editorial).html`; then run `./sync-docs.sh` (do not hand-edit `docs/index.html`).
+
+## How slides work
+
+| What | Updates automatically? |
+|------|------------------------|
+| DOM order of `<section class="slide">` inside `<deck-stage>` | Manual (move blocks) |
+| Left rail thumbnails | Yes — `deck-stage.js` on load |
+| `data-screen-label`, `data-deck-slide` | Yes on load; set in HTML for consistency |
+| `<span class="page-num">` (e.g. `03 / 16`) | **Manual** — must edit in HTML |
+| HTML comments (`<!-- SLIDE N — … -->`) | Manual |
+
+## Move one slide (two edits only)
+
+1. **Insert** the full `<section>…</section>` block at the new position (update comment, `page-num`, `data-screen-label`, `data-deck-slide` in that block).
+2. **Remove** the old copy using unique anchors (`data-om-id`, footer spans) — not a blind line range.
+
+Do **not** cut-then-forget: insert first, then delete the duplicate.
+
+## After every change — verify before syncing
+
+```bash
+# Must stay 16 unless user asked to add/remove a slide
+grep -c 'section class="slide' "Pitch til Psykiatrifonden v2 (editorial).html"
+
+# Each slide data-om-id on <section> must appear exactly once
+```
+
+Renumber shifted slides **high → low** (e.g. 13→12 before 12→11) to avoid double-replace collisions.
+
+## Sync
+
+```bash
+./sync-docs.sh
+```
+
+User commits and pushes; agent must not push to live.

@@ -1,0 +1,24 @@
+---
+description: Never start local dev/preview servers from the agent
+alwaysApply: true
+---
+
+# No agent-started servers
+
+**Never** start a local server, preview server, or background HTTP process from the terminal.
+
+Forbidden examples:
+- `python3 -m http.server`
+- `npx serve`, `live-server`, `vite`, `webpack-dev-server`
+- `php -S`, `ruby -run`, `docker run` solely to preview the site
+- Any other command whose main purpose is serving files locally
+
+## Instead
+
+- Tell the user to open/preview the file themselves if a browser view is needed.
+- Use existing user-run servers only if the user has already started one.
+- Do not start a server "just to verify" or for browser automation unless the user explicitly asks you to start one.
+
+## If a server is required
+
+Only start one when the user **explicitly** requests it in that message. Otherwise, never.
