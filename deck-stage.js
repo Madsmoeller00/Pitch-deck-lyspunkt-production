@@ -65,7 +65,10 @@
  *
  * Slides are the direct element children of <deck-stage>. Each slide is
  * automatically tagged with:
- *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-screen-label="NN Label"   (1-indexed; rewritten on load — primary slide id for tools)
+ *   - aria-label="Slide NN of TT · om-id · Label" (accessibility + inspector; not visible on slide)
+ *   - data-label="Short title" on <section> (stable name in source HTML; preferred for getSlideLabel)
+ *   - .page-num inside each slide     (e.g. "03 / 16"; rewritten on load from DOM order)
  *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
  */
 
@@ -622,10 +625,10 @@
       } catch (e) {}
       // Live thumbnail updates: watch the light-DOM slides for content
       // edits and re-clone just the affected thumb(s), debounced. Ignore
-      // the data-deck-* / data-screen-label / data-om-validate attributes
-      // this component itself writes so nav and skip don't trigger
-      // spurious refreshes.
-      const OWN_ATTRS = /^data-(deck-|screen-label$|om-validate$)/;
+      // the data-deck-* / data-screen-label / data-om-validate / aria-label
+      // attributes this component itself writes so nav and skip don't
+      // trigger spurious refreshes.
+      const OWN_ATTRS = /^(data-(deck-|screen-label$|om-validate$)|aria-label)$/;
       this._liveDirty = new Set();
       this._liveObserver = new MutationObserver((records) => {
         for (const r of records) {
@@ -1008,10 +1011,16 @@
         return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
       });
       this._slideSet = new Set(this._slides);
+      const total = this._slides.length || 1;
 
       this._slides.forEach((slide, i) => {
         const n = i + 1;
-        slide.setAttribute('data-screen-label', `${pad2(n)} ${getSlideLabel(slide)}`);
+        const label = getSlideLabel(slide);
+        const screenLabel = `${pad2(n)} ${label}`;
+        slide.setAttribute('data-screen-label', screenLabel);
+        const omId = slide.getAttribute('data-om-id');
+        const omPart = omId ? ` · ${omId}` : '';
+        slide.setAttribute('aria-label', `Slide ${pad2(n)} of ${total}${omPart} · ${label}`);
 
         // Validation attribute for comment flow / auto-checks.
         if (!slide.hasAttribute('data-om-validate')) {
@@ -1019,6 +1028,9 @@
         }
 
         slide.setAttribute('data-deck-slide', String(i));
+
+        const pageNum = slide.querySelector('.page-num');
+        if (pageNum) pageNum.textContent = `${pad2(n)} / ${total}`;
       });
 
       if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
@@ -1491,6 +1503,7 @@
       const dw = this.designWidth, dh = this.designHeight;
       let clone = entry.slide.cloneNode(true);
       clone.removeAttribute('id');
+      clone.removeAttribute('aria-label');
       clone.removeAttribute('data-deck-active');
       clone.querySelectorAll('[id]').forEach((el) => el.removeAttribute('id'));
       // Neuter heavy media; replace <video> with its poster so the box
