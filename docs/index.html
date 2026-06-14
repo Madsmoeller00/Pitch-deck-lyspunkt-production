@@ -2447,10 +2447,237 @@
     <span class="footer-mark" data-om-id="a5599d72:405">Pitch til Psykiatrifonden</span>
     <span class="footer-right" data-om-id="a5599d72:406">2026</span>
   </section>
+  <!-- ============================================================ -->
+  <!-- SLIDE 9 — a5599d72:407 — Podcast -->
+  <!-- ============================================================ -->
+  <section class="slide slide--paper" data-om-id="a5599d72:407" data-label="Podcast" data-screen-label="11 Podcast" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
+    <span class="corner-mark" data-om-id="a5599d72:408">Kampagnen</span>
+    <span class="page-num" data-om-id="a5599d72:409">11 / 16</span>
+
+    <p class="eyebrow" data-om-id="a5599d72:410">Hvad producerer vi · 02 – podcast</p>
+    <h2 class="title" style="font-size: 56px; max-width: 1620px; margin-bottom: 14px; line-height: 1.08;" data-om-id="a5599d72:411">Podcasten: "Hvorfor sagde jeg ik' noget?"</h2>
+    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin-bottom: 0;" data-om-id="a5599d72:413">
+      En podcast, hvor mennesker vender tilbage til det de ikke fik sagt højt. Gennem nærværende fortælling og lyd, åbner hvert afsnit for en personlig fortælling om det, der blev båret alene – og hvad der kan ske, når tavsheden endelig bliver brudt.
+    </p>
+
+    <hr class="rule" style="margin: 26px 0 22px 0;" data-om-id="a5599d72:415">
+
+    <div style="display: grid; grid-template-columns: 1.22fr 0.78fr; gap: 48px; flex: 1; min-height: 0;" data-om-id="a5599d72:416">
+
+      <!-- LEFT — Pilot episode player -->
+      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 0;" data-om-id="a5599d72:417">
+
+        <div class="pilot-episode-card" id="pilot-episode-card" data-om-id="a5599d72:418">
+          <div class="pilot-episode-card__cta is-nudging" data-om-id="a5599d72:cta">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Lyt til pilotaafsnittet — tryk play nedenfor
+          </div>
+          <div class="pilot-episode-card__body">
+            <div class="pilot-episode-card__top" data-om-id="a5599d72:419">
+              <div class="pilot-episode-card__art" data-om-id="a5599d72:420">
+                <span class="pilot-episode-card__art-mark" data-om-id="a5599d72:421">»…«</span>
+                <span class="pilot-episode-card__art-label" data-om-id="a5599d72:422">Lyspunkt</span>
+              </div>
+              <div data-om-id="a5599d72:423">
+                <span class="pilot-episode-card__badge" data-om-id="a5599d72:424">Pilot · Hvorfor sagde jeg ik' noget?</span>
+                <h3 class="pilot-episode-card__title" data-om-id="a5599d72:425">"Jeg troede ik' du gad mig mere"</h3>
+                <p class="pilot-episode-card__show" data-om-id="a5599d72:425b">Lyspunkt & Psykiatrifonden · dokumentarisk fortælling</p>
+              </div>
+            </div>
+
+            <p class="pilot-episode-card__description" data-om-id="a5599d72:413b">
+              Vi har udviklet en pilotepisode, der viser, hvordan et afsnit kan lyde. Piloten er spillet med skuespillere, og tager udgangspunkt i et tænkeligt scenarie om to tidligere bedste venner. Her har noget usagt skabt afstand og misforståelser mellem dem. Lige indtil den ene endelig er klar til at sige det højt.
+            </p>
+
+            <div class="pilot-episode-card__player is-nudging" role="button" tabindex="0" aria-label="Afspil pilotaafsnit" data-om-id="a5599d72:426">
+              <button class="pilot-episode-card__play is-nudging" type="button" aria-label="Afspil eller pause pilotaafsnit" data-om-id="a5599d72:427">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+              </button>
+              <div class="pilot-episode-card__track" data-om-id="a5599d72:428">
+                <span class="pilot-episode-card__track-label" data-om-id="a5599d72:429">Pilotaafsnit · afspil her</span>
+                <div class="pilot-episode-card__progress" aria-hidden="true" data-om-id="a5599d72:430">
+                  <div class="pilot-episode-card__progress-fill" data-om-id="a5599d72:431"></div>
+                </div>
+                <div class="pilot-episode-card__times" data-om-id="a5599d72:432">
+                  <span class="pilot-episode-card__time-cur" data-om-id="a5599d72:433">0:00</span>
+                  <span class="pilot-episode-card__time-dur" data-om-id="a5599d72:434">34:12</span>
+                </div>
+              </div>
+              <span class="pilot-episode-card__hint is-nudging" data-om-id="a5599d72:435">Klik for<br>at lytte</span>
+            </div>
+
+          </div>
+          <audio id="pilot-afsnit-audio" preload="metadata" src="audio/pilot-afsnit.mp3" data-om-id="a5599d72:audio"></audio>
+        </div>
+        <script>
+        (function () {
+          var card = document.getElementById('pilot-episode-card');
+          if (!card) return;
+          var audio = card.querySelector('#pilot-afsnit-audio');
+          var player = card.querySelector('.pilot-episode-card__player');
+          var btn = card.querySelector('.pilot-episode-card__play');
+          var progress = card.querySelector('.pilot-episode-card__progress');
+          var fill = card.querySelector('.pilot-episode-card__progress-fill');
+          var cur = card.querySelector('.pilot-episode-card__time-cur');
+          var dur = card.querySelector('.pilot-episode-card__time-dur');
+          var hint = card.querySelector('.pilot-episode-card__hint');
+          var cta = card.querySelector('.pilot-episode-card__cta');
+          function stopNudge() {
+            card.querySelectorAll('.is-nudging').forEach(function (el) { el.classList.remove('is-nudging'); });
+          }
+          function fmt(s) {
+            if (!isFinite(s) || s < 0) return '0:00';
+            var m = Math.floor(s / 60);
+            var sec = Math.floor(s % 60);
+            return m + ':' + String(sec).padStart(2, '0');
+          }
+          function toggle(e) {
+            if (e) e.stopPropagation();
+            if (!audio.src) return;
+            stopNudge();
+            if (audio.paused) {
+              audio.play();
+              card.classList.add('is-playing');
+              if (hint) hint.textContent = 'Afspiller…';
+            } else {
+              audio.pause();
+              card.classList.remove('is-playing');
+              if (hint) hint.innerHTML = 'Klik for<br>at lytte';
+            }
+          }
+          btn.addEventListener('click', toggle);
+          player.addEventListener('click', toggle);
+          player.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+          });
+          if (progress) {
+            progress.addEventListener('click', function (e) {
+              e.stopPropagation();
+              if (!audio.duration) return;
+              stopNudge();
+              var r = progress.getBoundingClientRect();
+              audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * audio.duration;
+            });
+          }
+          audio.addEventListener('timeupdate', function () {
+            if (fill && audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+            if (cur) cur.textContent = fmt(audio.currentTime);
+          });
+          audio.addEventListener('loadedmetadata', function () {
+            if (dur) dur.textContent = fmt(audio.duration);
+          });
+          audio.addEventListener('ended', function () {
+            card.classList.remove('is-playing');
+            if (fill) fill.style.width = '0%';
+            if (cur) cur.textContent = '0:00';
+            if (hint) hint.innerHTML = 'Klik for<br>at lytte';
+            if (cta) {
+              cta.classList.add('is-nudging');
+              cta.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Lyt igen — tryk play nedenfor';
+            }
+            player.classList.add('is-nudging');
+            btn.classList.add('is-nudging');
+          });
+        })();
+        </script>
+
+      </div>
+
+      <!-- RIGHT — quote -->
+      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 0;" data-om-id="a5599d72:452">
+
+        <p class="label" style="font-size: 11px; margin: 0 0 6px 0; letter-spacing: 0.22em;" data-om-id="a5599d72:476">Etisk greb</p>
+        <p class="pilot-format-note" data-om-id="a5599d72:442">
+          En faglig erkendelse i udviklingen har været, at kampagnen ikke må rejse skyld hos dem, der ikke har sagt noget tidligere. I stedet skal vi skabe et trygt og genkendeligt rum for at tage samtalen nu.
+        </p>
+
+        <figure style="margin: 0; padding: 0 0 0 20px; border-left: 3px solid #028090;" data-om-id="a5599d72:468">
+          <blockquote style="font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="a5599d72:469">
+            <span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-right: 4px;" data-om-id="a5599d72:470">”</span>Der er en berøringsangst i vores samfund; vi siger, at folk skal snakke højt, men når de så siger noget, kan vi ikke modtage dem.<span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-left: 4px;" data-om-id="a5599d72:471">”</span>
+          </blockquote>
+          <figcaption style="margin-top: 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--tertiary);" data-om-id="a5599d72:472">
+            <span style="font-weight: 600; color: var(--ink);" data-om-id="a5599d72:473">Philip Tønder Hartvig</span> &nbsp;·&nbsp; Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <span class="footer-mark" data-om-id="a5599d72:482">Pitch til Psykiatrifonden</span>
+    <span class="footer-right" data-om-id="a5599d72:483">2026</span>
+  </section>
+  <!-- ============================================================ -->
+  <!-- SLIDE 10 — a5599d72:484 — Kampagnefilm -->
+  <!-- ============================================================ -->
+  <section class="slide slide--warm" style="background: var(--paper);" data-om-id="a5599d72:484" data-label="Kampagnefilm" data-screen-label="12 »Hvordan går det… egentlig?«" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11">
+    <span class="corner-mark" data-om-id="a5599d72:485">Kampagnen</span>
+    <span class="page-num" data-om-id="a5599d72:486">12 / 16</span>
+
+    <p class="eyebrow" data-om-id="a5599d72:487">Hvad producerer vi · 03 — kampagnefilm</p>
+    <h2 class="title" style="font-size: 60px; max-width: 1620px; margin-bottom: 14px; line-height: 1.08;" data-om-id="a5599d72:488">
+      »Hvordan har du det… <em class="mark" data-om-id="a5599d72:489">egentlig?</em>«
+    </h2>
+    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin-bottom: 0;" data-om-id="a5599d72:490">Vi spørger hele tiden: «Hvordan har du det?». Ofte spørger vi ind som en hilsen, og nødvendigvis ikke som en invitation til et andet svar end "fint".</p>
+    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin: 12px 0 0 0;" data-om-id="a5599d72:490b">Filmen er en genkendelig og humoristisk karikatur af de irrationelle tanker, der får os til at tie stille.</p>
+
+    <hr class="rule" style="margin: 24px 0 22px 0;" data-om-id="a5599d72:491">
+
+    <!-- Reference film — single example -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch;" data-om-id="a5599d72:492">
+
+      <div style="display: flex; flex-direction: column; width: 100%; min-width: 0; padding-right: 16px; box-sizing: border-box;" data-om-id="a5599d72:493-col">
+        <figure style="margin: 0; display: flex; flex-direction: column; width: 100%; min-width: 0;" data-om-id="a5599d72:493">
+          <p class="mini-label" style="font-size: 12px; letter-spacing: 0.22em;" data-om-id="a5599d72:494" data-cc-id="cc-2">Tone-of-voice reference</p>
+          <div style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #1A1A18; position: relative; overflow: hidden; margin-right: 4px;" data-om-id="a5599d72:495">
+            <video src="media/asktwice.mp4" controls="" muted="" autoplay="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" data-om-id="a5599d72:496"></video>
+          </div>
+          <figcaption style="font-size: 13px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:497">»Ask Twice« – eksempel på tone-of-voice, og hvordan humor kan være med til at afdramatisere.</figcaption>
+        </figure>
+        <p style="font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--secondary); margin: 16px 0 0 0; padding-top: 14px; border-top: 1px solid #D8C5B0;" data-om-id="a5599d72:518">Vi har tidligere samarbejdet med produktionsselskabet M2 Film, der producerer reklamefilm.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; width: 100%; min-width: 0;" data-om-id="a5599d72:493-col-right">
+        <p class="mini-label" style="font-size: 12px; letter-spacing: 0.22em;" data-om-id="a5599d72:531-kftext">Handlingsforløb</p>
+        <div class="card" style="padding: 24px 28px; width: 100%; min-width: 0; box-sizing: border-box; flex: 1;" data-om-id="a5599d72:530-kftext">
+        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 6px 0; text-wrap: pretty;" data-om-id="a5599d72:532-kftext">Filmen tager udgangspunkt i et helt almindeligt møde mellem to unge, der kender hinanden godt.</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 4px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:532b-kftext">«Hvordan går det?»</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 6px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:532d-kftext">«Fint...»</p>
+        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 10px 0; text-wrap: pretty;" data-om-id="a5599d72:532c-kftext">Den ene svarer automatisk. Den anden kan med det samme mærke, at noget er off.</p>
+        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 6px 0; text-wrap: pretty;" data-om-id="a5599d72:533-kftext">Ved at lade dem kigge direkte i kameraet får vi adgang til deres faktiske tanker:</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 4px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:534-kftext">“Det går faktisk overhovedet ikke fint.”</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 10px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:535-kftext">“Jeg kan godt se, at han ikke er okay. Men hvordan spørger jeg?”</p>
+        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 6px 0; text-wrap: pretty;" data-om-id="a5599d72:537-kftext">Personen tøver, og ved ikke hvordan han skal spørge ind. Derfor ender det akavet:</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.4; color: var(--ink); margin: 0 0 12px 0;" data-om-id="a5599d72:538-kftext">“Hey man… hvordan går det egentlig?”</p>
+        <p class="label" style="margin: 0 0 6px 0; font-size: 13px;" data-om-id="a5599d72:539-kftext">EndCard / Slutbudskab</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.45; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="a5599d72:540-kftext">Den svære samtale behøver ikke begynde perfekt. Spørg nysgerrigt. Lyt uden at fixe. </p>
+        <figure style="margin: 18px 0 0 0; padding-top: 16px; border-top: 1px solid #C9B498;" data-om-id="a5599d72:527">
+          <blockquote style="font-family: var(--serif); font-style: italic; font-size: 15px; line-height: 1.4; color: var(--ink); margin: 0; padding: 0; text-wrap: pretty;" data-om-id="a5599d72:528">»Folk lever under et eller andet tyranni, der hedder: vi snakker ikke om vores følelser, vi spørger ikke hinanden, vi antager bare, at tingene går skide godt. Hvad er den mest almindelige respons, når man møder nogen? 'Hey, hvordan har du det?' 'Fint.' Alle siger, 'jeg har det fint'.«</blockquote>
+          <figcaption style="margin-top: 12px;" data-om-id="a5599d72:533">
+            <span style="display: block; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.01em;" data-om-id="1dc9af67:680">Philip Tønder Hartvig</span>
+            <span style="display: block; margin-top: 2px; font-family: var(--sans); font-size: 12px; color: var(--secondary); line-height: 1.4;" data-om-id="a5599d72:534">Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver på projektet</span>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom band — kampagnens grundprincip -->
+    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #D8C5B0;" data-om-id="a5599d72:516">
+      <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding-top: 4px;" data-om-id="a5599d72:243-kf">
+        <p class="label" style="margin: 0; letter-spacing: 0.22em; white-space: nowrap;" data-om-id="a5599d72:244-kf">Kampagnens grundprincip</p>
+        <p style="font-family: var(--serif); font-style: italic; font-size: 30px; line-height: 1.3; color: var(--ink); margin: 0px; text-wrap: pretty;" data-om-id="a5599d72:245-kf">Det vigtige er ikke hvordan du spørger.&nbsp;<em class="mark" data-om-id="a5599d72:246-kf">Det vigtige er, at du gør det.</em>
+        </p>
+      </div>
+    </div>
+
+    <span class="footer-mark" data-om-id="a5599d72:535">Pitch til Psykiatrifonden</span>
+    <span class="footer-right" data-om-id="a5599d72:536">2026</span>
+  </section>
 
 
   <!-- ============================================================ -->
-  <!-- SLIDE 9 — a5599d72:22 — Lyspunkt Production -->
+  <!-- SLIDE 11 — a5599d72:22 — Lyspunkt Production -->
   <!-- ============================================================ -->
   <section class="slide slide--paper" data-om-id="a5599d72:22" data-label="Lyspunkt Production" data-screen-label="08 Lyspunkt Production" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
     <span class="corner-mark" data-om-id="a5599d72:23">Lyspunkt Production</span>
@@ -2491,7 +2718,7 @@
 
 
   <!-- ============================================================ -->
-  <!-- SLIDE 10 — a5599d72:45 — Tidligere projekter · Lyspunkt -->
+  <!-- SLIDE 12 — a5599d72:45 — Tidligere projekter · Lyspunkt -->
   <!-- ============================================================ -->
   <section class="slide slide--paper" data-om-id="a5599d72:45" data-label="Tidligere projekter · Lyspunkt" data-screen-label="09 Vi er skaberne bag podcasten &quot;Lyspunkt&quot;" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8">
     <div class="cover-warm-overlay" aria-hidden="true" data-om-id="1dc9af67:46"></div>
@@ -2682,235 +2909,8 @@
 
 
 
-  <!-- ============================================================ -->
-  <!-- SLIDE 11 — a5599d72:407 — Podcast -->
-  <!-- ============================================================ -->
-  <section class="slide slide--paper" data-om-id="a5599d72:407" data-label="Podcast" data-screen-label="11 Podcast" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
-    <span class="corner-mark" data-om-id="a5599d72:408">Kampagnen</span>
-    <span class="page-num" data-om-id="a5599d72:409">11 / 16</span>
-
-    <p class="eyebrow" data-om-id="a5599d72:410">Hvad producerer vi · 02 – podcast</p>
-    <h2 class="title" style="font-size: 56px; max-width: 1620px; margin-bottom: 14px; line-height: 1.08;" data-om-id="a5599d72:411">Podcasten: "Hvorfor sagde jeg ik' noget?"</h2>
-    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin-bottom: 0;" data-om-id="a5599d72:413">
-      En podcast, hvor mennesker vender tilbage til det de ikke fik sagt højt. Gennem nærværende fortælling og lyd, åbner hvert afsnit for en personlig fortælling om det, der blev båret alene – og hvad der kan ske, når tavsheden endelig bliver brudt.
-    </p>
-
-    <hr class="rule" style="margin: 26px 0 22px 0;" data-om-id="a5599d72:415">
-
-    <div style="display: grid; grid-template-columns: 1.22fr 0.78fr; gap: 48px; flex: 1; min-height: 0;" data-om-id="a5599d72:416">
-
-      <!-- LEFT — Pilot episode player -->
-      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 0;" data-om-id="a5599d72:417">
-
-        <div class="pilot-episode-card" id="pilot-episode-card" data-om-id="a5599d72:418">
-          <div class="pilot-episode-card__cta is-nudging" data-om-id="a5599d72:cta">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Lyt til pilotaafsnittet — tryk play nedenfor
-          </div>
-          <div class="pilot-episode-card__body">
-            <div class="pilot-episode-card__top" data-om-id="a5599d72:419">
-              <div class="pilot-episode-card__art" data-om-id="a5599d72:420">
-                <span class="pilot-episode-card__art-mark" data-om-id="a5599d72:421">»…«</span>
-                <span class="pilot-episode-card__art-label" data-om-id="a5599d72:422">Lyspunkt</span>
-              </div>
-              <div data-om-id="a5599d72:423">
-                <span class="pilot-episode-card__badge" data-om-id="a5599d72:424">Pilot · Hvorfor sagde jeg ik' noget?</span>
-                <h3 class="pilot-episode-card__title" data-om-id="a5599d72:425">"Jeg troede ik' du gad mig mere"</h3>
-                <p class="pilot-episode-card__show" data-om-id="a5599d72:425b">Lyspunkt & Psykiatrifonden · dokumentarisk fortælling</p>
-              </div>
-            </div>
-
-            <p class="pilot-episode-card__description" data-om-id="a5599d72:413b">
-              Vi har udviklet en pilotepisode, der viser, hvordan et afsnit kan lyde. Piloten er spillet med skuespillere, og tager udgangspunkt i et tænkeligt scenarie om to tidligere bedste venner. Her har noget usagt skabt afstand og misforståelser mellem dem. Lige indtil den ene endelig er klar til at sige det højt.
-            </p>
-
-            <div class="pilot-episode-card__player is-nudging" role="button" tabindex="0" aria-label="Afspil pilotaafsnit" data-om-id="a5599d72:426">
-              <button class="pilot-episode-card__play is-nudging" type="button" aria-label="Afspil eller pause pilotaafsnit" data-om-id="a5599d72:427">
-                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
-              </button>
-              <div class="pilot-episode-card__track" data-om-id="a5599d72:428">
-                <span class="pilot-episode-card__track-label" data-om-id="a5599d72:429">Pilotaafsnit · afspil her</span>
-                <div class="pilot-episode-card__progress" aria-hidden="true" data-om-id="a5599d72:430">
-                  <div class="pilot-episode-card__progress-fill" data-om-id="a5599d72:431"></div>
-                </div>
-                <div class="pilot-episode-card__times" data-om-id="a5599d72:432">
-                  <span class="pilot-episode-card__time-cur" data-om-id="a5599d72:433">0:00</span>
-                  <span class="pilot-episode-card__time-dur" data-om-id="a5599d72:434">34:12</span>
-                </div>
-              </div>
-              <span class="pilot-episode-card__hint is-nudging" data-om-id="a5599d72:435">Klik for<br>at lytte</span>
-            </div>
-
-          </div>
-          <audio id="pilot-afsnit-audio" preload="metadata" src="audio/pilot-afsnit.mp3" data-om-id="a5599d72:audio"></audio>
-        </div>
-        <script>
-        (function () {
-          var card = document.getElementById('pilot-episode-card');
-          if (!card) return;
-          var audio = card.querySelector('#pilot-afsnit-audio');
-          var player = card.querySelector('.pilot-episode-card__player');
-          var btn = card.querySelector('.pilot-episode-card__play');
-          var progress = card.querySelector('.pilot-episode-card__progress');
-          var fill = card.querySelector('.pilot-episode-card__progress-fill');
-          var cur = card.querySelector('.pilot-episode-card__time-cur');
-          var dur = card.querySelector('.pilot-episode-card__time-dur');
-          var hint = card.querySelector('.pilot-episode-card__hint');
-          var cta = card.querySelector('.pilot-episode-card__cta');
-          function stopNudge() {
-            card.querySelectorAll('.is-nudging').forEach(function (el) { el.classList.remove('is-nudging'); });
-          }
-          function fmt(s) {
-            if (!isFinite(s) || s < 0) return '0:00';
-            var m = Math.floor(s / 60);
-            var sec = Math.floor(s % 60);
-            return m + ':' + String(sec).padStart(2, '0');
-          }
-          function toggle(e) {
-            if (e) e.stopPropagation();
-            if (!audio.src) return;
-            stopNudge();
-            if (audio.paused) {
-              audio.play();
-              card.classList.add('is-playing');
-              if (hint) hint.textContent = 'Afspiller…';
-            } else {
-              audio.pause();
-              card.classList.remove('is-playing');
-              if (hint) hint.innerHTML = 'Klik for<br>at lytte';
-            }
-          }
-          btn.addEventListener('click', toggle);
-          player.addEventListener('click', toggle);
-          player.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-          });
-          if (progress) {
-            progress.addEventListener('click', function (e) {
-              e.stopPropagation();
-              if (!audio.duration) return;
-              stopNudge();
-              var r = progress.getBoundingClientRect();
-              audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * audio.duration;
-            });
-          }
-          audio.addEventListener('timeupdate', function () {
-            if (fill && audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
-            if (cur) cur.textContent = fmt(audio.currentTime);
-          });
-          audio.addEventListener('loadedmetadata', function () {
-            if (dur) dur.textContent = fmt(audio.duration);
-          });
-          audio.addEventListener('ended', function () {
-            card.classList.remove('is-playing');
-            if (fill) fill.style.width = '0%';
-            if (cur) cur.textContent = '0:00';
-            if (hint) hint.innerHTML = 'Klik for<br>at lytte';
-            if (cta) {
-              cta.classList.add('is-nudging');
-              cta.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Lyt igen — tryk play nedenfor';
-            }
-            player.classList.add('is-nudging');
-            btn.classList.add('is-nudging');
-          });
-        })();
-        </script>
-
-      </div>
-
-      <!-- RIGHT — quote -->
-      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 0;" data-om-id="a5599d72:452">
-
-        <p class="label" style="font-size: 11px; margin: 0 0 6px 0; letter-spacing: 0.22em;" data-om-id="a5599d72:476">Etisk greb</p>
-        <p class="pilot-format-note" data-om-id="a5599d72:442">
-          En faglig erkendelse i udviklingen har været, at kampagnen ikke må rejse skyld hos dem, der ikke har sagt noget tidligere. I stedet skal vi skabe et trygt og genkendeligt rum for at tage samtalen nu.
-        </p>
-
-        <figure style="margin: 0; padding: 0 0 0 20px; border-left: 3px solid #028090;" data-om-id="a5599d72:468">
-          <blockquote style="font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="a5599d72:469">
-            <span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-right: 4px;" data-om-id="a5599d72:470">”</span>Der er en berøringsangst i vores samfund; vi siger, at folk skal snakke højt, men når de så siger noget, kan vi ikke modtage dem.<span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-left: 4px;" data-om-id="a5599d72:471">”</span>
-          </blockquote>
-          <figcaption style="margin-top: 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--tertiary);" data-om-id="a5599d72:472">
-            <span style="font-weight: 600; color: var(--ink);" data-om-id="a5599d72:473">Philip Tønder Hartvig</span> &nbsp;·&nbsp; Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <span class="footer-mark" data-om-id="a5599d72:482">Pitch til Psykiatrifonden</span>
-    <span class="footer-right" data-om-id="a5599d72:483">2026</span>
-  </section>
 
 
-  <!-- ============================================================ -->
-  <!-- SLIDE 12 — a5599d72:484 — Kampagnefilm -->
-  <!-- ============================================================ -->
-  <section class="slide slide--warm" style="background: var(--paper);" data-om-id="a5599d72:484" data-label="Kampagnefilm" data-screen-label="12 »Hvordan går det… egentlig?«" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11">
-    <span class="corner-mark" data-om-id="a5599d72:485">Kampagnen</span>
-    <span class="page-num" data-om-id="a5599d72:486">12 / 16</span>
-
-    <p class="eyebrow" data-om-id="a5599d72:487">Hvad producerer vi · 03 — kampagnefilm</p>
-    <h2 class="title" style="font-size: 60px; max-width: 1620px; margin-bottom: 14px; line-height: 1.08;" data-om-id="a5599d72:488">
-      »Hvordan har du det… <em class="mark" data-om-id="a5599d72:489">egentlig?</em>«
-    </h2>
-    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin-bottom: 0;" data-om-id="a5599d72:490">Vi spørger hele tiden: «Hvordan har du det?». Ofte spørger vi ind som en hilsen, og nødvendigvis ikke som en invitation til et andet svar end "fint".</p>
-    <p class="lead" style="max-width: 1500px; font-size: 22px; line-height: 1.5; margin: 12px 0 0 0;" data-om-id="a5599d72:490b">Filmen er en genkendelig og humoristisk karikatur af de irrationelle tanker, der får os til at tie stille.</p>
-
-    <hr class="rule" style="margin: 24px 0 22px 0;" data-om-id="a5599d72:491">
-
-    <!-- Reference film — single example -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch;" data-om-id="a5599d72:492">
-
-      <div style="display: flex; flex-direction: column; width: 100%; min-width: 0; padding-right: 16px; box-sizing: border-box;" data-om-id="a5599d72:493-col">
-        <figure style="margin: 0; display: flex; flex-direction: column; width: 100%; min-width: 0;" data-om-id="a5599d72:493">
-          <p class="mini-label" style="font-size: 12px; letter-spacing: 0.22em;" data-om-id="a5599d72:494" data-cc-id="cc-2">Tone-of-voice reference</p>
-          <div style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #1A1A18; position: relative; overflow: hidden; margin-right: 4px;" data-om-id="a5599d72:495">
-            <video src="media/asktwice.mp4" controls="" muted="" autoplay="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" data-om-id="a5599d72:496"></video>
-          </div>
-          <figcaption style="font-size: 13px; line-height: 1.4; color: var(--secondary); margin: 12px 0 0 0;" data-om-id="a5599d72:497">»Ask Twice« – eksempel på tone-of-voice, og hvordan humor kan være med til at afdramatisere.</figcaption>
-        </figure>
-        <p style="font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--secondary); margin: 16px 0 0 0; padding-top: 14px; border-top: 1px solid #D8C5B0;" data-om-id="a5599d72:518">Vi har tidligere samarbejdet med produktionsselskabet M2 Film, der producerer reklamefilm.</p>
-      </div>
-
-      <div style="display: flex; flex-direction: column; width: 100%; min-width: 0;" data-om-id="a5599d72:493-col-right">
-        <p class="mini-label" style="font-size: 12px; letter-spacing: 0.22em;" data-om-id="a5599d72:531-kftext">Handlingsforløb</p>
-        <div class="card" style="padding: 24px 28px; width: 100%; min-width: 0; box-sizing: border-box; flex: 1;" data-om-id="a5599d72:530-kftext">
-        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 6px 0; text-wrap: pretty;" data-om-id="a5599d72:532-kftext">Filmen tager udgangspunkt i et helt almindeligt møde mellem to unge, der kender hinanden godt.</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 4px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:532b-kftext">«Hvordan går det?»</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 6px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:532d-kftext">«Fint...»</p>
-        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 10px 0; text-wrap: pretty;" data-om-id="a5599d72:532c-kftext">Den ene svarer automatisk. Den anden kan med det samme mærke, at noget er off.</p>
-        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 6px 0; text-wrap: pretty;" data-om-id="a5599d72:533-kftext">Ved at lade dem kigge direkte i kameraet får vi adgang til deres faktiske tanker:</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 4px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:534-kftext">“Det går faktisk overhovedet ikke fint.”</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); margin: 0 0 10px 0; padding-left: 14px; border-left: 2px solid #C9B498;" data-om-id="a5599d72:535-kftext">“Jeg kan godt se, at han ikke er okay. Men hvordan spørger jeg?”</p>
-        <p style="font-family: var(--sans); font-size: 16px; line-height: 1.5; color: var(--body); margin: 0 0 6px 0; text-wrap: pretty;" data-om-id="a5599d72:537-kftext">Personen tøver, og ved ikke hvordan han skal spørge ind. Derfor ender det akavet:</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.4; color: var(--ink); margin: 0 0 12px 0;" data-om-id="a5599d72:538-kftext">“Hey man… hvordan går det egentlig?”</p>
-        <p class="label" style="margin: 0 0 6px 0; font-size: 13px;" data-om-id="a5599d72:539-kftext">EndCard / Slutbudskab</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.45; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="a5599d72:540-kftext">Den svære samtale behøver ikke begynde perfekt. Spørg nysgerrigt. Lyt uden at fixe. </p>
-        <figure style="margin: 18px 0 0 0; padding-top: 16px; border-top: 1px solid #C9B498;" data-om-id="a5599d72:527">
-          <blockquote style="font-family: var(--serif); font-style: italic; font-size: 15px; line-height: 1.4; color: var(--ink); margin: 0; padding: 0; text-wrap: pretty;" data-om-id="a5599d72:528">»Folk lever under et eller andet tyranni, der hedder: vi snakker ikke om vores følelser, vi spørger ikke hinanden, vi antager bare, at tingene går skide godt. Hvad er den mest almindelige respons, når man møder nogen? 'Hey, hvordan har du det?' 'Fint.' Alle siger, 'jeg har det fint'.«</blockquote>
-          <figcaption style="margin-top: 12px;" data-om-id="a5599d72:533">
-            <span style="display: block; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.01em;" data-om-id="1dc9af67:680">Philip Tønder Hartvig</span>
-            <span style="display: block; margin-top: 2px; font-family: var(--sans); font-size: 12px; color: var(--secondary); line-height: 1.4;" data-om-id="a5599d72:534">Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland · faglig rådgiver på projektet</span>
-          </figcaption>
-        </figure>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom band — kampagnens grundprincip -->
-    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #D8C5B0;" data-om-id="a5599d72:516">
-      <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding-top: 4px;" data-om-id="a5599d72:243-kf">
-        <p class="label" style="margin: 0; letter-spacing: 0.22em; white-space: nowrap;" data-om-id="a5599d72:244-kf">Kampagnens grundprincip</p>
-        <p style="font-family: var(--serif); font-style: italic; font-size: 30px; line-height: 1.3; color: var(--ink); margin: 0px; text-wrap: pretty;" data-om-id="a5599d72:245-kf">Det vigtige er ikke hvordan du spørger.&nbsp;<em class="mark" data-om-id="a5599d72:246-kf">Det vigtige er, at du gør det.</em>
-        </p>
-      </div>
-    </div>
-
-    <span class="footer-mark" data-om-id="a5599d72:535">Pitch til Psykiatrifonden</span>
-    <span class="footer-right" data-om-id="a5599d72:536">2026</span>
-  </section>
 
 
   <!-- ============================================================ -->
