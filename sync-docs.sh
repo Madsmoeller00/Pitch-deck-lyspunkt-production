@@ -3,6 +3,8 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cp "$ROOT/Pitch til Psykiatrifonden v2 (editorial).html" "$ROOT/docs/index.html"
+# Viewer copy: keep the thumbnail rail for navigation, but block reorder/skip/delete.
+perl -i -pe 's/<deck-stage /<deck-stage readonly / unless /readonly/' "$ROOT/docs/index.html"
 cp "$ROOT/deck-stage.js" "$ROOT/docs/"
 rsync -a --delete "$ROOT/assets/" "$ROOT/docs/assets/"
 rsync -a --delete "$ROOT/media/" "$ROOT/docs/media/"

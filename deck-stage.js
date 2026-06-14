@@ -26,8 +26,9 @@
  *      the rail, omitted from prev/next navigation, and hidden at print.
  *      The rail is suppressed in presenting mode, in the host's Preview
  *      mode (ViewerMode='none'), on `noscale`, on narrow viewports
- *      (≤640px), and via the `no-rail` attribute. Rail mutations dispatch
- *      a `deckchange`
+ *      (≤640px), and via the `no-rail` attribute. Set `readonly` to keep the
+ *      rail navigable but disable drag-reorder, skip, and delete (for
+ *      published/viewer copies). Rail mutations dispatch a `deckchange`
  *      CustomEvent on the element: detail = {action, from, to, slide}.
  *
  * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
@@ -542,7 +543,7 @@
   `;
 
   class DeckStage extends HTMLElement {
-    static get observedAttributes() { return ['width', 'height', 'noscale', 'no-rail']; }
+    static get observedAttributes() { return ['width', 'height', 'noscale', 'no-rail', 'readonly']; }
 
     constructor() {
       super();
@@ -1456,41 +1457,43 @@
         const cur = this._thumbs && this._thumbs[this._index];
         if (cur) cur.thumb.focus({ preventScroll: true });
       });
-      thumb.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        this._openMenu(idx(), e.clientX, e.clientY);
-      });
-      thumb.draggable = true;
-      thumb.addEventListener('dragstart', (e) => {
-        this._dragFrom = idx();
-        thumb.setAttribute('data-dragging', '');
-        e.dataTransfer.effectAllowed = 'move';
-        try { e.dataTransfer.setData('text/plain', String(this._dragFrom)); } catch (err) {}
-      });
-      thumb.addEventListener('dragend', () => {
-        thumb.removeAttribute('data-dragging');
-        this._clearDrop();
-        this._dragFrom = null;
-      });
-      thumb.addEventListener('dragover', (e) => {
-        if (this._dragFrom == null) return;
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        const r = thumb.getBoundingClientRect();
-        this._setDrop(idx(), e.clientY < r.top + r.height / 2 ? 'before' : 'after');
-      });
-      thumb.addEventListener('drop', (e) => {
-        if (this._dragFrom == null) return;
-        e.preventDefault();
-        const i = idx();
-        const r = thumb.getBoundingClientRect();
-        let to = e.clientY >= r.top + r.height / 2 ? i + 1 : i;
-        if (this._dragFrom < to) to--;
-        const from = this._dragFrom;
-        this._clearDrop();
-        this._dragFrom = null;
-        if (to !== from) this._moveSlide(from, to);
-      });
+      if (!this.hasAttribute('readonly')) {
+        thumb.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          this._openMenu(idx(), e.clientX, e.clientY);
+        });
+        thumb.draggable = true;
+        thumb.addEventListener('dragstart', (e) => {
+          this._dragFrom = idx();
+          thumb.setAttribute('data-dragging', '');
+          e.dataTransfer.effectAllowed = 'move';
+          try { e.dataTransfer.setData('text/plain', String(this._dragFrom)); } catch (err) {}
+        });
+        thumb.addEventListener('dragend', () => {
+          thumb.removeAttribute('data-dragging');
+          this._clearDrop();
+          this._dragFrom = null;
+        });
+        thumb.addEventListener('dragover', (e) => {
+          if (this._dragFrom == null) return;
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          const r = thumb.getBoundingClientRect();
+          this._setDrop(idx(), e.clientY < r.top + r.height / 2 ? 'before' : 'after');
+        });
+        thumb.addEventListener('drop', (e) => {
+          if (this._dragFrom == null) return;
+          e.preventDefault();
+          const i = idx();
+          const r = thumb.getBoundingClientRect();
+          let to = e.clientY >= r.top + r.height / 2 ? i + 1 : i;
+          if (this._dragFrom < to) to--;
+          const from = this._dragFrom;
+          this._clearDrop();
+          this._dragFrom = null;
+          if (to !== from) this._moveSlide(from, to);
+        });
+      }
 
       if (this._railObserver) this._railObserver.observe(frame);
       frame.__deckThumb = entry;
@@ -1642,7 +1645,7 @@
     }
 
     _openMenu(i, x, y) {
-      if (!this._menu) return;
+      if (this.hasAttribute('readonly') || !this._menu) return;
       this._menuIndex = i;
       const slide = this._slides[i];
       const skip = slide && slide.hasAttribute('data-deck-skip');
@@ -1687,6 +1690,7 @@
     }
 
     _deleteSlide(i) {
+      if (this.hasAttribute('readonly')) return;
       const slide = this._slides[i];
       if (!slide || this._slides.length <= 1) return;
       const wasCurrent = i === this._index;
@@ -1699,6 +1703,7 @@
     }
 
     _toggleSkip(i) {
+      if (this.hasAttribute('readonly')) return;
       const slide = this._slides[i];
       if (!slide) return;
       const on = !slide.hasAttribute('data-deck-skip');
@@ -1724,6 +1729,7 @@
     }
 
     _moveSlide(i, j) {
+      if (this.hasAttribute('readonly')) return;
       if (j < 0 || j >= this._slides.length || j === i) return;
       const slide = this._slides[i];
       const ref = j < i ? this._slides[j] : this._slides[j].nextSibling;
