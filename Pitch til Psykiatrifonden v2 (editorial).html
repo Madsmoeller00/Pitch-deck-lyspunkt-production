@@ -1008,6 +1008,46 @@
   .spotify-episode-card.is-playing .spotify-episode-card__play .icon-play { display: none; }
   .spotify-episode-card.is-playing .spotify-episode-card__play .icon-pause { display: block; }
   .spotify-episode-card__play .icon-pause { display: none; margin-left: 0; }
+  .spotify-episode-card__player {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .spotify-episode-card__track { min-width: 0; }
+  .spotify-episode-card__track-label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 9px;
+  }
+  .spotify-episode-card__progress {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .spotify-episode-card__progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #028090, #5EC8D4);
+    border-radius: 999px;
+    transition: width 120ms linear;
+  }
+  .spotify-episode-card__times {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: #a8a8a3;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
   .spotify-episode-card__extras {
     display: none;
   }
@@ -3109,10 +3149,19 @@
               <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-om-id="a5599d72:92"><path d="M6 5h4v14H6zm8 0h4v14h-4z"></path></svg>
             </button>
           </div>
-          <div class="spotify-episode-card__extras" data-om-id="a5599d72:89">
-            <span class="spotify-episode-card__track-label" data-om-id="a5599d72:94">Uddrag fra episoden</span>
-            <span class="spotify-episode-card__time-cur" data-om-id="a5599d72:98">0:00</span>
-            <span class="spotify-episode-card__time-dur" data-om-id="a5599d72:99">3:53</span>
+          <div class="spotify-episode-card__player" data-om-id="a5599d72:89">
+            <div class="spotify-episode-card__track" data-om-id="a5599d72:94">
+              <span class="spotify-episode-card__track-label" data-om-id="a5599d72:94b">Uddrag fra episoden</span>
+              <div class="spotify-episode-card__progress" aria-hidden="true" data-om-id="a5599d72:95">
+                <div class="spotify-episode-card__progress-fill" data-om-id="a5599d72:96"></div>
+              </div>
+              <div class="spotify-episode-card__times" data-om-id="a5599d72:97">
+                <span class="spotify-episode-card__time-cur" data-om-id="a5599d72:98">0:00</span>
+                <span class="spotify-episode-card__time-dur" data-om-id="a5599d72:99">3:53</span>
+              </div>
+            </div>
+          </div>
+          <div class="spotify-episode-card__extras" data-om-id="a5599d72:89b">
             <span class="spotify-episode-card__hint" data-om-id="a5599d72:100">Klik for at lytte</span>
             <p class="spotify-episode-card__footer-note" data-om-id="a5599d72:102">Uddraget afspilles her · hele episoden er på Spotify</p>
             <a class="spotify-episode-card__spotify-link" href="https://open.spotify.com/episode/4qzXnw0pW0fpPJx3lpGka9" target="_blank" rel="noopener noreferrer" data-om-id="a5599d72:103">Åbn episoden på Spotify →</a>
@@ -3126,14 +3175,18 @@
           var audio = card.querySelector('#lyspunkt-snippet');
           var body = card.querySelector('.spotify-episode-card__body');
           var btn = card.querySelector('.spotify-episode-card__play');
+          var progress = card.querySelector('.spotify-episode-card__progress');
+          var fill = card.querySelector('.spotify-episode-card__progress-fill');
+          var cur = card.querySelector('.spotify-episode-card__time-cur');
           var dur = card.querySelector('.spotify-episode-card__time-dur');
           function fmt(s) {
-            if (!isFinite(s)) return '0:00';
+            if (!isFinite(s) || s < 0) return '0:00';
             var m = Math.floor(s / 60);
             var sec = Math.floor(s % 60);
             return m + ':' + String(sec).padStart(2, '0');
           }
-          function toggle() {
+          function toggle(e) {
+            if (e) e.stopPropagation();
             if (!audio.src) return;
             if (audio.paused) {
               audio.play();
@@ -3143,19 +3196,30 @@
               card.classList.remove('is-playing');
             }
           }
-          btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            toggle();
-          });
+          btn.addEventListener('click', toggle);
           body.addEventListener('click', toggle);
           body.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+          });
+          if (progress) {
+            progress.addEventListener('click', function (e) {
+              e.stopPropagation();
+              if (!audio.duration) return;
+              var r = progress.getBoundingClientRect();
+              audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * audio.duration;
+            });
+          }
+          audio.addEventListener('timeupdate', function () {
+            if (fill && audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+            if (cur) cur.textContent = fmt(audio.currentTime);
           });
           audio.addEventListener('loadedmetadata', function () {
             if (dur) dur.textContent = fmt(audio.duration);
           });
           audio.addEventListener('ended', function () {
             card.classList.remove('is-playing');
+            if (fill) fill.style.width = '0%';
+            if (cur) cur.textContent = '0:00';
           });
         })();
         </script>
