@@ -1013,148 +1013,122 @@
   }
 
   /* Pilot episode player — slide 10 */
+  /* === Slide 9 — Podcast (light editorial) === */
+  .podcast-body {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    flex: 1;
+    min-height: 0;
+  }
   .pilot-episode-card {
-    background: linear-gradient(165deg, #1e2a2c 0%, #121818 100%);
-    border-radius: 16px;
-    padding: 0;
-    color: #fff;
-    box-shadow: 0 28px 60px -20px rgba(2, 97, 110, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    background: #ffffff;
+    border: 0.5px solid #E3DED5;
+    border-top: 3px solid var(--teal);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.03), 0 12px 30px rgba(26, 26, 24, 0.06);
     overflow: hidden;
   }
-  .pilot-episode-card__cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 20px;
-    background: linear-gradient(90deg, #02616E 0%, #028090 50%, #02616E 100%);
-    background-size: 200% 100%;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #FBF6F1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-  section[data-deck-active] .pilot-episode-card__cta.is-nudging {
-    animation: pilot-cta-shimmer 3s ease-in-out infinite;
-  }
-  .pilot-episode-card__cta svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-  section[data-deck-active] .pilot-episode-card__cta.is-nudging svg {
-    animation: pilot-cta-bob 1.4s ease-in-out infinite;
-  }
   .pilot-episode-card__body {
-    padding: 26px 28px 24px;
-  }
-  .pilot-episode-card__top {
     display: grid;
-    grid-template-columns: 172px 1fr;
-    gap: 24px;
-    align-items: center;
-    margin-bottom: 0;
+    grid-template-columns: 140px 1fr;
+    gap: 30px;
+    padding: 28px 32px;
+    align-items: start;
   }
   .pilot-episode-card__art {
-    width: 172px;
-    height: 172px;
-    border-radius: 10px;
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
     background: linear-gradient(140deg, #02616E 0%, #B8704F 100%);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 26px rgba(2, 97, 110, 0.28);
     flex-shrink: 0;
   }
   .pilot-episode-card__art-mark {
     font-family: var(--serif);
     font-style: italic;
     color: #FBF6F1;
-    font-size: 72px;
+    font-size: 58px;
     line-height: 0.9;
     letter-spacing: -0.03em;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   .pilot-episode-card__art-label {
     position: absolute;
-    bottom: 10px;
+    bottom: 11px;
     left: 12px;
     right: 12px;
     font-family: var(--sans);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.22em;
-    color: rgba(251, 246, 241, 0.88);
+    color: rgba(251, 246, 241, 0.9);
     text-transform: uppercase;
     text-align: center;
   }
+  .pilot-episode-card__info {
+    min-width: 0;
+  }
   .pilot-episode-card__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #5EC8D4;
+    color: var(--teal-deep);
     margin-bottom: 10px;
   }
   .pilot-episode-card__title {
     font-family: var(--serif);
-    font-size: 30px;
+    font-size: 33px;
     font-weight: 400;
-    line-height: 1.15;
-    margin: 0 0 10px 0;
-    color: #fff;
+    line-height: 1.12;
+    margin: 0 0 8px 0;
+    color: var(--ink);
     text-wrap: pretty;
   }
   .pilot-episode-card__show {
     font-family: var(--sans);
-    font-size: 15px;
-    color: #a8b8ba;
+    font-size: 17px;
+    color: var(--secondary);
     margin: 0;
     line-height: 1.45;
   }
   .pilot-episode-card__description {
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: 19px;
     line-height: 1.55;
-    color: #c4cfd1;
-    margin: 0 0 20px 0;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--ink);
+    margin: 14px 0 18px 0;
     text-wrap: pretty;
   }
   .pilot-episode-card__player {
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 20px;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
     align-items: center;
-    padding: 20px 22px;
-    background: rgba(255, 255, 255, 0.07);
+    padding: 13px 16px;
+    background: var(--teal-soft);
+    border: 0.5px solid #CDE3E5;
     border-radius: 12px;
-    border: 2px solid rgba(94, 200, 212, 0.25);
     cursor: pointer;
-    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    transition: background 160ms ease, border-color 160ms ease;
   }
   .pilot-episode-card__player:hover {
-    background: rgba(255, 255, 255, 0.11);
-    border-color: rgba(94, 200, 212, 0.55);
-  }
-  section[data-deck-active] .pilot-episode-card__player.is-nudging {
-    animation: pilot-player-glow 2.6s ease-in-out infinite;
+    background: #DCECEE;
+    border-color: #9EC4C8;
   }
   .pilot-episode-card__play {
-    width: 72px;
-    height: 72px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: none;
-    background: #028090;
+    background: var(--teal);
     color: #FBF6F1;
     display: inline-flex;
     align-items: center;
@@ -1162,24 +1136,20 @@
     padding: 0;
     cursor: pointer;
     flex-shrink: 0;
-    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
-    box-shadow: 0 6px 24px rgba(2, 128, 144, 0.55);
-  }
-  section[data-deck-active] .pilot-episode-card:not(.is-playing) .pilot-episode-card__play.is-nudging {
-    animation: pilot-play-pulse 2.4s ease-in-out infinite;
+    transition: transform 160ms ease, background 160ms ease;
+    box-shadow: 0 4px 14px rgba(2, 128, 144, 0.35);
   }
   .pilot-episode-card__player:hover .pilot-episode-card__play {
-    transform: scale(1.06);
+    transform: scale(1.05);
     background: #039aaa;
   }
   .pilot-episode-card.is-playing .pilot-episode-card__play {
-    animation: none;
     background: #039aaa;
   }
   .pilot-episode-card__play svg {
-    width: 28px;
-    height: 28px;
-    margin-left: 3px;
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
   }
   .pilot-episode-card.is-playing .pilot-episode-card__play .icon-play { display: none; }
   .pilot-episode-card.is-playing .pilot-episode-card__play .icon-pause { display: block; }
@@ -1192,12 +1162,12 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #5EC8D4;
-    margin-bottom: 10px;
+    color: var(--teal-deep);
+    margin-bottom: 9px;
   }
   .pilot-episode-card__progress {
     height: 6px;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(2, 97, 110, 0.15);
     border-radius: 999px;
     overflow: hidden;
     cursor: pointer;
@@ -1214,59 +1184,29 @@
     justify-content: space-between;
     margin-top: 8px;
     font-family: var(--sans);
-    font-size: 12px;
-    color: #a8b8ba;
+    font-size: 13px;
+    color: var(--secondary);
     letter-spacing: 0.04em;
     font-variant-numeric: tabular-nums;
   }
-  .pilot-episode-card__hint {
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal);
-    white-space: nowrap;
-    text-align: right;
-    line-height: 1.4;
+  .podcast-insight {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 44px;
+    align-items: start;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
   }
-  section[data-deck-active] .pilot-episode-card__hint.is-nudging {
-    animation: pilot-hint-bob 1.5s ease-in-out infinite;
-  }
+  .podcast-insight__note { min-width: 0; }
   .pilot-format-note {
     font-family: var(--sans);
     font-size: 20px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--ink);
-    margin: 0 0 32px 0;
+    margin: 0;
     text-wrap: pretty;
   }
-  @keyframes pilot-play-pulse {
-    0%, 100% { box-shadow: 0 6px 24px rgba(2, 128, 144, 0.5); }
-    50% { box-shadow: 0 8px 32px rgba(2, 128, 144, 0.75), 0 0 0 10px rgba(2, 128, 144, 0.14); }
-  }
-  @keyframes pilot-player-glow {
-    0%, 100% { border-color: rgba(94, 200, 212, 0.25); }
-    50% { border-color: rgba(94, 200, 212, 0.55); }
-  }
-  @keyframes pilot-cta-shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  @keyframes pilot-cta-bob {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(4px); }
-  }
-  @keyframes pilot-hint-bob {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(-5px); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .pilot-episode-card__play,
-    .pilot-episode-card__cta,
-    .pilot-episode-card__hint,
-    .pilot-episode-card__player { animation: none !important; }
-  }
+  .podcast-insight__quote { min-width: 0; }
 
   .slide3-body {
     display: grid;
@@ -1802,14 +1742,14 @@
   }
   .tre-spor-header__main .title {
     max-width: 1500px;
-    font-size: 72px;
-    line-height: 1.06;
-    margin-bottom: 18px;
+    font-size: 62px;
+    line-height: 1.05;
+    margin-bottom: 16px;
     letter-spacing: -0.01em;
   }
   .tre-spor-header__main .lead {
     max-width: 1500px;
-    font-size: 22px;
+    font-size: 21px;
     line-height: 1.5;
     margin-bottom: 0;
     color: var(--body);
@@ -1853,23 +1793,23 @@
     background: var(--teal-soft);
     border: 0.5px solid #CDE3E5;
     border-radius: 9px;
-    padding: 20px 16px;
+    padding: 16px 18px;
     text-align: center;
   }
   .tre-spor-campaign__label {
     font-family: var(--sans);
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #5b8d93;
-    margin: 0 0 2px;
+    margin: 0 0 3px;
     line-height: 1;
   }
   .tre-spor-campaign__title {
     font-family: var(--serif);
     font-weight: 700;
-    font-size: 17px;
+    font-size: 22px;
     color: #1A1A18;
     margin: 0;
     line-height: 1.2;
@@ -1878,14 +1818,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    margin: 14px 0 0;
-    min-height: 44px;
+    margin: 12px 0 0;
+    min-height: 38px;
   }
   .tre-spor-arrow {
     justify-self: center;
     align-self: stretch;
     width: 2px;
-    height: 44px;
+    height: 38px;
     background: linear-gradient(to bottom, #CDE3E5, #9EC4C8);
     border-radius: 2px;
     position: relative;
@@ -1908,20 +1848,19 @@
     gap: 24px;
     align-items: stretch;
     width: 100%;
-    margin-top: 18px;
+    margin-top: 16px;
     flex: 1;
     min-height: 0;
   }
   .tre-spor-track {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     min-width: 0;
     background: #ffffff;
     border: 0.5px solid #E3DED5;
     border-top: 3px solid var(--teal);
     border-radius: 10px;
-    padding: 26px 26px;
+    padding: 30px 30px;
     box-sizing: border-box;
     box-shadow: 0 1px 2px rgba(26, 26, 24, 0.03), 0 8px 22px rgba(26, 26, 24, 0.05);
   }
@@ -1929,22 +1868,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   .tre-spor-track__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
     background: var(--teal-soft);
     color: var(--teal);
     flex-shrink: 0;
   }
   .tre-spor-track__icon svg {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     stroke: currentColor;
     fill: none;
     stroke-width: 1.75;
@@ -1952,36 +1891,43 @@
     stroke-linejoin: round;
   }
   .tre-spor-track__num {
-    font-family: var(--serif);
-    font-size: 44px;
-    font-weight: 400;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
     line-height: 1;
-    color: #DCD8CF;
-    letter-spacing: -0.02em;
+    color: #B8B2A6;
+    letter-spacing: 0.08em;
   }
   .tre-spor-track__name {
     font-family: var(--serif);
     font-weight: 700;
-    font-size: 25px;
-    line-height: 1.15;
+    font-size: 27px;
+    line-height: 1.12;
     color: var(--ink);
-    margin: 0 0 16px 0;
-    padding-bottom: 16px;
-    border-bottom: 0.5px solid #ECE7DE;
+    margin: 0 0 10px 0;
+  }
+  .tre-spor-track__desc {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--secondary);
+    margin: 0;
   }
   .tre-spor-track__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 22px;
   }
   .tre-spor-track__tag {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.01em;
     color: var(--teal-deep);
     background: var(--teal-soft);
-    padding: 5px 11px;
+    padding: 6px 13px;
     border-radius: 999px;
     white-space: nowrap;
     line-height: 1.3;
@@ -2176,10 +2122,10 @@
           <img src="media/Philip Tønder Hartvig.webp" alt="Philip Tønder Hartvig" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; filter: grayscale(1); z-index: 1;" data-om-id="a5599d72:592">
         </div>
         <div style="align-self: center; padding: 14px 0;" data-om-id="a5599d72:593">
-          <p class="label" style="font-size: 14px; margin: 0 0 5px 0;" data-om-id="a5599d72:594">Psykolog · klinisk</p>
+          <p class="label" style="font-size: 14px; margin: 0 0 5px 0;" data-om-id="a5599d72:594">Psykolog · kliniker</p>
           <h4 style="margin: 0 0 7px 0; font-size: 23px; line-height: 1.15;" data-om-id="a5599d72:595">Philip Tønder Hartvig</h4>
           <p class="small" style="font-size: 16px; line-height: 1.4; color: var(--secondary); margin: 0px;" data-om-id="a5599d72:596">
-            Børne Unge Psykiatrien Region Sjælland. Dansk ambassadør, International Society for the Study of Self-Injury.
+            Børne- og Ungdomspsykiatrien, Region Sjælland og dansk ambassadør for the International Society for the Study of Self-Injury.
           </p>
         </div>
         <div style="align-self: center; display: flex; flex-direction: column; gap: 14px; padding: 14px 24px 14px 0;" data-om-id="a5599d72:597">
@@ -2360,7 +2306,6 @@
         </div>
 
         <aside class="tre-spor-ref" data-om-id="a5599d72:256-ref">
-          <p class="tre-spor-ref__label" data-om-id="a5599d72:256-ref-label">Reference</p>
           <figure class="tre-spor-ref__card" data-om-id="a5599d72:256-ref-card">
             <img src="media/r-u-ok-banner.png" alt="R U OK? kampagneplakat" data-om-id="a5599d72:256-ref-img">
           </figure>
@@ -2388,6 +2333,7 @@
             <span class="tre-spor-track__num" aria-hidden="true">01</span>
           </div>
           <h3 class="tre-spor-track__name" data-om-id="a5599d72:271">Sociale medier</h3>
+          <p class="tre-spor-track__desc" data-om-id="a5599d72:271-desc">Indhold, der skabe   .</p>
           <div class="tre-spor-track__tags" data-om-id="a5599d72:257-tags">
             <span class="tre-spor-track__tag" data-om-id="a5599d72:257-t1">reflektion</span>
             <span class="tre-spor-track__tag" data-om-id="a5599d72:257-t2">redskaber</span>
@@ -2401,6 +2347,7 @@
             <span class="tre-spor-track__num" aria-hidden="true">02</span>
           </div>
           <h3 class="tre-spor-track__name" data-om-id="a5599d72:300">Podcast</h3>
+          <p class="tre-spor-track__desc" data-om-id="a5599d72:300-desc">Ærlige samtaler i lang form, der gør det trygt at tale om det svære.</p>
           <div class="tre-spor-track__tags" data-om-id="a5599d72:277-tags">
             <span class="tre-spor-track__tag" data-om-id="a5599d72:277-t1">fordybelse</span>
             <span class="tre-spor-track__tag" data-om-id="a5599d72:277-t2">fortælling</span>
@@ -2414,6 +2361,7 @@
             <span class="tre-spor-track__num" aria-hidden="true">03</span>
           </div>
           <h3 class="tre-spor-track__name" data-om-id="a5599d72:317">Kampagnefilm</h3>
+          <p class="tre-spor-track__desc" data-om-id="a5599d72:317-desc">Et visuelt blikfang, der fanger opmærksomheden og rammer bredt med humor.</p>
           <div class="tre-spor-track__tags" data-om-id="a5599d72:306-tags">
             <span class="tre-spor-track__tag" data-om-id="a5599d72:306-t1">opmærksomhed</span>
             <span class="tre-spor-track__tag" data-om-id="a5599d72:306-t2">humor</span>
@@ -2573,35 +2521,23 @@
 
     <hr class="rule" style="margin: 26px 0 22px 0;" data-om-id="a5599d72:415">
 
-    <div style="display: grid; grid-template-columns: 1.22fr 0.78fr; gap: 48px; flex: 1; min-height: 0;" data-om-id="a5599d72:416">
+    <div class="podcast-body" data-om-id="a5599d72:416">
 
-      <!-- LEFT — Pilot episode player -->
-      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 0;" data-om-id="a5599d72:417">
-
-        <div class="pilot-episode-card" id="pilot-episode-card" data-om-id="a5599d72:418">
-          <div class="pilot-episode-card__cta is-nudging" data-om-id="a5599d72:cta">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Lyt til pilotaafsnittet – tryk play nedenfor
+      <!-- Pilot episode — playable -->
+      <div class="pilot-episode-card" id="pilot-episode-card" data-om-id="a5599d72:418">
+        <div class="pilot-episode-card__body">
+          <div class="pilot-episode-card__art" data-om-id="a5599d72:420">
+            <span class="pilot-episode-card__art-mark" data-om-id="a5599d72:421">»…«</span>
+            <span class="pilot-episode-card__art-label" data-om-id="a5599d72:422">Lyspunkt</span>
           </div>
-          <div class="pilot-episode-card__body">
-            <div class="pilot-episode-card__top" data-om-id="a5599d72:419">
-              <div class="pilot-episode-card__art" data-om-id="a5599d72:420">
-                <span class="pilot-episode-card__art-mark" data-om-id="a5599d72:421">»…«</span>
-                <span class="pilot-episode-card__art-label" data-om-id="a5599d72:422">Lyspunkt</span>
-              </div>
-              <div data-om-id="a5599d72:423">
-                <span class="pilot-episode-card__badge" data-om-id="a5599d72:424">Pilot · Hvorfor sagde jeg ik' noget?</span>
-                <h3 class="pilot-episode-card__title" data-om-id="a5599d72:425">"Jeg troede ik' du gad mig mere"</h3>
-                <p class="pilot-episode-card__show" data-om-id="a5599d72:425b">Lyspunkt & Psykiatrifonden · dokumentarisk fortælling</p>
-              </div>
-            </div>
+          <div class="pilot-episode-card__info" data-om-id="a5599d72:419">
+            <span class="pilot-episode-card__badge" data-om-id="a5599d72:424">Pilot · Hvorfor sagde jeg ik' noget?</span>
+            <h3 class="pilot-episode-card__title" data-om-id="a5599d72:425">"Jeg troede ik' du gad mig mere"</h3>
+            <p class="pilot-episode-card__show" data-om-id="a5599d72:425b">Lyspunkt & Psykiatrifonden · dokumentarisk fortælling</p>
+            <p class="pilot-episode-card__description" data-om-id="a5599d72:413b">Vi har udviklet en pilotepisode, der viser, hvordan et afsnit kan lyde. Afsnittet er indspillet med skuespillere, og tager udgangspunkt i et tænkeligt scenarie om to tidligere bedste venner. Noget usagt har skabt afstand og misforståelser mellem dem, lige indtil den ene, endelig er klar til at sige det højt.</p>
 
-            <p class="pilot-episode-card__description" data-om-id="a5599d72:413b">
-              Vi har udviklet en pilotepisode, der viser, hvordan et afsnit kan lyde. Afsnittet er indspillet med skuespillere, og tager udgangspunkt i et tænkeligt scenarie om to tidligere bedste venner. Noget usagt har skabt afstand og misforståelser mellem dem, lige indtil den ene, endelig er klar til at sige det højt.
-            </p>
-
-            <div class="pilot-episode-card__player is-nudging" role="button" tabindex="0" aria-label="Afspil pilotaafsnit" data-om-id="a5599d72:426">
-              <button class="pilot-episode-card__play is-nudging" type="button" aria-label="Afspil eller pause pilotaafsnit" data-om-id="a5599d72:427">
+            <div class="pilot-episode-card__player" role="button" tabindex="0" aria-label="Afspil pilotaafsnit" data-om-id="a5599d72:426">
+              <button class="pilot-episode-card__play" type="button" aria-label="Afspil eller pause pilotaafsnit" data-om-id="a5599d72:427">
                 <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                 <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
               </button>
@@ -2615,12 +2551,11 @@
                   <span class="pilot-episode-card__time-dur" data-om-id="a5599d72:434">5:57</span>
                 </div>
               </div>
-              <span class="pilot-episode-card__hint is-nudging" data-om-id="a5599d72:435">Klik for<br>at lytte</span>
             </div>
-
           </div>
-          <audio id="pilot-afsnit-audio" preload="metadata" src="media/teaser-hvorfor-sagde-jeg-ik-noget.wav" data-om-id="a5599d72:audio"></audio>
         </div>
+        <audio id="pilot-afsnit-audio" preload="metadata" src="media/teaser-hvorfor-sagde-jeg-ik-noget.wav" data-om-id="a5599d72:audio"></audio>
+      </div>
         <script>
         (function () {
           var card = document.getElementById('pilot-episode-card');
@@ -2693,21 +2628,19 @@
         })();
         </script>
 
-      </div>
+      <!-- Etisk greb + ekspertcitat -->
+      <div class="podcast-insight" data-om-id="a5599d72:452">
 
-      <!-- RIGHT — quote -->
-      <div style="display: flex; flex-direction: column; justify-content: center; min-height: 0;" data-om-id="a5599d72:452">
+        <div class="podcast-insight__note">
+          <p class="label" style="font-size: 11px; margin: 0 0 8px 0; letter-spacing: 0.22em;" data-om-id="a5599d72:476">Etisk greb</p>
+          <p class="pilot-format-note" data-om-id="a5599d72:442">En faglig erkendelse i udviklingen har været, at kampagnen ikke må rejse skyld hos dem, der ikke har sagt noget tidligere. I stedet skal vi skabe et trygt og genkendeligt rum for at tage samtalen nu.</p>
+        </div>
 
-        <p class="label" style="font-size: 11px; margin: 0 0 6px 0; letter-spacing: 0.22em;" data-om-id="a5599d72:476">Etisk greb</p>
-        <p class="pilot-format-note" data-om-id="a5599d72:442">
-          En faglig erkendelse i udviklingen har været, at kampagnen ikke må rejse skyld hos dem, der ikke har sagt noget tidligere. I stedet skal vi skabe et trygt og genkendeligt rum for at tage samtalen nu.
-        </p>
-
-        <figure style="margin: 0; padding: 0 0 0 20px; border-left: 3px solid #028090;" data-om-id="a5599d72:468">
-          <blockquote style="font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="a5599d72:469">
-            <span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-right: 4px;" data-om-id="a5599d72:470">”</span>Der er en berøringsangst i vores samfund; vi siger, at folk skal snakke højt, men når de så siger noget, kan vi ikke modtage dem.<span class="quote-mark" style="color: #028090; font-size: 36px; line-height: 0; position: relative; top: 12px; margin-left: 4px;" data-om-id="a5599d72:471">”</span>
+        <figure class="podcast-insight__quote" style="margin: 0; padding: 0 0 0 22px; border-left: 3px solid #028090;" data-om-id="a5599d72:468">
+          <blockquote style="font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="a5599d72:469">
+            <span class="quote-mark" style="color: #028090; font-size: 34px; line-height: 0; position: relative; top: 11px; margin-right: 4px;" data-om-id="a5599d72:470">”</span>Der er en berøringsangst i vores samfund; vi siger, at folk skal snakke højt, men når de så siger noget, kan vi ikke modtage dem.<span class="quote-mark" style="color: #028090; font-size: 34px; line-height: 0; position: relative; top: 11px; margin-left: 4px;" data-om-id="a5599d72:471">”</span>
           </blockquote>
-          <figcaption style="margin-top: 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--tertiary);" data-om-id="a5599d72:472">
+          <figcaption style="margin-top: 12px; font-family: var(--sans); font-size: 14px; line-height: 1.45; color: var(--tertiary);" data-om-id="a5599d72:472">
             <span style="font-weight: 600; color: var(--ink);" data-om-id="a5599d72:473">Philip Tønder Hartvig</span> &nbsp;·&nbsp; Psykolog, Børne- og Ungdomspsykiatrien Region Sjælland
           </figcaption>
         </figure>
@@ -2720,7 +2653,7 @@
   <!-- ============================================================ -->
   <!-- SLIDE 10 — a5599d72:484 — Kampagnefilm -->
   <!-- ============================================================ -->
-  <section class="slide slide--warm" style="background: var(--paper);" data-om-id="a5599d72:484" data-label="Kampagnefilm" data-screen-label="10 »Hvordan går det… egentlig?«" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
+  <section class="slide slide--paper" data-om-id="a5599d72:484" data-label="Kampagnefilm" data-screen-label="10 »Hvordan går det… egentlig?«" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
     <span class="corner-mark" data-om-id="a5599d72:485">Kampagnen</span>
     <span class="page-num" data-om-id="a5599d72:486">10 / 16</span>
 
