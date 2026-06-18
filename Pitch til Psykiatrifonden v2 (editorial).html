@@ -1115,6 +1115,54 @@
   .pilot-episode-card__art-wave span:nth-child(8)  { height: 58%; }
   .pilot-episode-card__art-wave span:nth-child(9)  { height: 42%; }
   .pilot-episode-card__art-wave span:nth-child(10) { height: 68%; }
+  .pilot-episode-card__art-play {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 2px solid rgba(251, 246, 241, 0.4);
+    background: var(--teal);
+    color: #FBF6F1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 6px 22px rgba(2, 128, 144, 0.6), 0 0 0 8px rgba(2, 128, 144, 0.2);
+    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  }
+  .pilot-episode-card__art-play svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 2px;
+  }
+  .pilot-episode-card__art-play .icon-pause {
+    display: none;
+    margin-left: 0;
+  }
+  .pilot-episode-card__art:hover .pilot-episode-card__art-play,
+  .pilot-episode-card__art-play:hover {
+    transform: translate(-50%, -50%) scale(1.07);
+    background: #039aaa;
+    box-shadow: 0 8px 26px rgba(2, 128, 144, 0.7), 0 0 0 10px rgba(2, 128, 144, 0.28);
+  }
+  .pilot-episode-card.is-playing .pilot-episode-card__art-play {
+    background: #039aaa;
+    animation: none;
+  }
+  .pilot-episode-card.is-playing .pilot-episode-card__art-play .icon-play { display: none; }
+  .pilot-episode-card.is-playing .pilot-episode-card__art-play .icon-pause { display: block; }
+  @keyframes pilot-art-play-pulse {
+    0%, 100% { box-shadow: 0 6px 22px rgba(2, 128, 144, 0.6), 0 0 0 8px rgba(2, 128, 144, 0.2); }
+    50% { box-shadow: 0 8px 28px rgba(2, 128, 144, 0.75), 0 0 0 12px rgba(2, 128, 144, 0.32); }
+  }
+  .pilot-episode-card:not(.is-playing) .pilot-episode-card__art-play {
+    animation: pilot-art-play-pulse 2.6s ease-in-out infinite;
+  }
   .pilot-episode-card__info {
     min-width: 0;
   }
@@ -1133,7 +1181,7 @@
     font-size: 33px;
     font-weight: 400;
     line-height: 1.12;
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     color: var(--ink);
     text-wrap: pretty;
   }
@@ -1149,70 +1197,20 @@
     font-size: 19px;
     line-height: 1.55;
     color: var(--ink);
-    margin: 14px 0 18px 0;
+    margin: 14px 0 0 0;
     text-wrap: pretty;
   }
   .pilot-episode-card__player {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 18px;
-    align-items: center;
-    padding: 13px 16px;
-    background: var(--teal-soft);
-    border: 0.5px solid #CDE3E5;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 160ms ease, border-color 160ms ease;
-  }
-  .pilot-episode-card__player:hover {
-    background: #DCECEE;
-    border-color: #9EC4C8;
-  }
-  .pilot-episode-card__play {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    background: var(--teal);
-    color: #FBF6F1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0 0 10px 0;
     padding: 0;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: transform 160ms ease, background 160ms ease;
-    box-shadow: 0 4px 14px rgba(2, 128, 144, 0.35);
+    background: transparent;
+    border: none;
+    border-radius: 0;
   }
-  .pilot-episode-card__player:hover .pilot-episode-card__play {
-    transform: scale(1.05);
-    background: #039aaa;
-  }
-  .pilot-episode-card.is-playing .pilot-episode-card__play {
-    background: #039aaa;
-  }
-  .pilot-episode-card__play svg {
-    width: 22px;
-    height: 22px;
-    margin-left: 2px;
-  }
-  .pilot-episode-card.is-playing .pilot-episode-card__play .icon-play { display: none; }
-  .pilot-episode-card.is-playing .pilot-episode-card__play .icon-pause { display: block; }
-  .pilot-episode-card__play .icon-pause { display: none; margin-left: 0; }
   .pilot-episode-card__track { min-width: 0; }
-  .pilot-episode-card__track-label {
-    display: block;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    margin-bottom: 9px;
-  }
   .pilot-episode-card__progress {
-    height: 6px;
-    background: rgba(2, 97, 110, 0.15);
+    height: 4px;
+    background: rgba(2, 97, 110, 0.18);
     border-radius: 999px;
     overflow: hidden;
     cursor: pointer;
@@ -1227,9 +1225,9 @@
   .pilot-episode-card__times {
     display: flex;
     justify-content: space-between;
-    margin-top: 8px;
+    margin-top: 6px;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12px;
     color: var(--secondary);
     letter-spacing: 0.04em;
     font-variant-numeric: tabular-nums;
@@ -2824,25 +2822,21 @@
       <!-- Pilot episode — playable -->
       <div class="pilot-episode-card" id="pilot-episode-card" data-om-id="a5599d72:418">
         <div class="pilot-episode-card__body">
-          <div class="pilot-episode-card__art" aria-hidden="true" data-om-id="a5599d72:420">
-            <div class="pilot-episode-card__art-wave" data-om-id="a5599d72:421">
+          <div class="pilot-episode-card__art" data-om-id="a5599d72:420">
+            <div class="pilot-episode-card__art-wave" aria-hidden="true" data-om-id="a5599d72:421">
               <span></span><span></span><span></span><span></span><span></span>
               <span></span><span></span><span></span><span></span><span></span>
             </div>
+            <button class="pilot-episode-card__art-play" type="button" aria-label="Afspil pilotaafsnit" data-om-id="a5599d72:421b">
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+            </button>
           </div>
           <div class="pilot-episode-card__info" data-om-id="a5599d72:419">
             <span class="pilot-episode-card__badge" data-om-id="a5599d72:424">Pilot · Hvorfor sagde jeg ik' noget?</span>
             <h3 class="pilot-episode-card__title" data-om-id="a5599d72:425">"Jeg troede ik' du gad mig mere"</h3>
-            <p class="pilot-episode-card__show" data-om-id="a5599d72:425b">Lyspunkt & Psykiatrifonden · dokumentarisk fortælling</p>
-            <p class="pilot-episode-card__description" data-om-id="a5599d72:413b">Vi har udviklet en pilotepisode, der viser, hvordan et afsnit kan lyde. Afsnittet er indspillet med skuespillere, og tager udgangspunkt i et tænkeligt scenarie om to tidligere bedste venner. Noget usagt har skabt afstand og misforståelser mellem dem, lige indtil den ene, endelig er klar til at sige det højt.</p>
-
-            <div class="pilot-episode-card__player" role="button" tabindex="0" aria-label="Afspil pilotaafsnit" data-om-id="a5599d72:426">
-              <button class="pilot-episode-card__play" type="button" aria-label="Afspil eller pause pilotaafsnit" data-om-id="a5599d72:427">
-                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
-              </button>
+            <div class="pilot-episode-card__player" data-om-id="a5599d72:426">
               <div class="pilot-episode-card__track" data-om-id="a5599d72:428">
-                <span class="pilot-episode-card__track-label" data-om-id="a5599d72:429">Pilotaafsnit · afspil her</span>
                 <div class="pilot-episode-card__progress" aria-hidden="true" data-om-id="a5599d72:430">
                   <div class="pilot-episode-card__progress-fill" data-om-id="a5599d72:431"></div>
                 </div>
@@ -2852,6 +2846,8 @@
                 </div>
               </div>
             </div>
+            <p class="pilot-episode-card__show" data-om-id="a5599d72:425b">Lyspunkt & Psykiatrifonden · dokumentarisk fortælling</p>
+            <p class="pilot-episode-card__description" data-om-id="a5599d72:413b">Vi har udviklet en pilotepisode, der viser, hvordan et afsnit kan lyde. Afsnittet er indspillet med skuespillere, og tager udgangspunkt i et tænkeligt scenarie om to tidligere bedste venner. Noget usagt har skabt afstand og misforståelser mellem dem, lige indtil den ene, endelig er klar til at sige det højt.</p>
           </div>
         </div>
         <audio id="pilot-afsnit-audio" preload="metadata" src="media/teaser-hvorfor-sagde-jeg-ik-noget.wav" data-om-id="a5599d72:audio"></audio>
@@ -2861,8 +2857,7 @@
           var card = document.getElementById('pilot-episode-card');
           if (!card) return;
           var audio = card.querySelector('#pilot-afsnit-audio');
-          var player = card.querySelector('.pilot-episode-card__player');
-          var btn = card.querySelector('.pilot-episode-card__play');
+          var artPlay = card.querySelector('.pilot-episode-card__art-play');
           var progress = card.querySelector('.pilot-episode-card__progress');
           var fill = card.querySelector('.pilot-episode-card__progress-fill');
           var cur = card.querySelector('.pilot-episode-card__time-cur');
@@ -2892,11 +2887,7 @@
               if (hint) hint.innerHTML = 'Klik for<br>at lytte';
             }
           }
-          btn.addEventListener('click', toggle);
-          player.addEventListener('click', toggle);
-          player.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-          });
+          if (artPlay) artPlay.addEventListener('click', toggle);
           if (progress) {
             progress.addEventListener('click', function (e) {
               e.stopPropagation();
@@ -2920,10 +2911,9 @@
             if (hint) hint.innerHTML = 'Klik for<br>at lytte';
             if (cta) {
               cta.classList.add('is-nudging');
-              cta.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Lyt igen — tryk play nedenfor';
+              cta.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> Lyt igen — tryk play på coveret';
             }
-            player.classList.add('is-nudging');
-            btn.classList.add('is-nudging');
+            if (artPlay) artPlay.classList.add('is-nudging');
           });
         })();
         </script>
@@ -3441,7 +3431,7 @@
         <p style="font-family: var(--sans); font-size: 18px; line-height: 1.45; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="guilt:30">Vi har med Lyspunkt vist, at vi kan omsætte tunge temaer til håbefulde og nænsomme fortællinger, uden at gå på kompromis med faglighed. Samtidig er vi bevidste om, at "Hvorfor sagde jeg ik' noget?" har et større omfang og en bredere rækkevidde.</p>
         <div style="margin-top: 16px; background: var(--teal-soft); border-radius: 8px; padding: 13px 16px 14px;" data-om-id="guilt:26">
           <span style="font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--teal-deep); display: block; margin: 0 0 5px;" data-om-id="guilt:27">Vores Løsning</span>
-          <p style="font-family: var(--sans); font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="guilt:28">Derfor kræver kampagnen bådestærke samarbejder og løbende kvalificering. Vi har stor respekt for det ansvar, der følger med.</p>
+          <p style="font-family: var(--sans); font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="guilt:28">Derfor kræver kampagnen både stærke samarbejder og løbende kvalificering. Vi har stor respekt for det ansvar, der følger med.</p>
         </div>
       </div>
 
@@ -3455,7 +3445,7 @@
         <p style="font-family: var(--sans); font-size: 18px; line-height: 1.45; color: var(--ink); margin: 12px 0 0; text-wrap: pretty;" data-om-id="guilt:39">Som Katrine Krogh Pedersen siger: <em style="font-style: italic;">"Noget af det værste, de kunne forestille sig, er at blive til et meme."</em></p>
         <div style="margin-top: 16px; background: var(--teal-soft); border-radius: 8px; padding: 13px 16px 14px;" data-om-id="guilt:36">
           <span style="font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--teal-deep); display: block; margin: 0 0 5px;" data-om-id="guilt:37">Vores Løsning</span>
-          <p style="font-family: var(--sans); font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="guilt:38">Derfor er det afgørende, at vi udvikler formater, hvor de kan spejle sig uden selv at blive eksponeret.</p>
+          <p style="font-family: var(--sans); font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0; text-wrap: pretty;" data-om-id="guilt:38">Derfor er det afgørende, at vi udvikler formater, som de kan spejle sig i, uden selv at blive eksponeret.</p>
         </div>
       </div>
 
